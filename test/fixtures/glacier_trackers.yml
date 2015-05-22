@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  year: 1
+  melt_rate: 1.5
+  climate_tracker_id: 
+
+two:
+  year: 1
+  melt_rate: 1.5
+  climate_tracker_id: 
