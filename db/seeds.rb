@@ -28,6 +28,13 @@ AirQualityTracker.create!([
   {date: 2015, city_name: "Moscow", pm10: nil, pm25: 28.3, climate_tracker_id: 1},
   {date: 2000, city_name: "Delhi", pm10: nil, pm25: 153.0, climate_tracker_id: 1},
   {date: 2015, city_name: "Delhi", pm10: nil, pm25: 153.0, climate_tracker_id: 1}
+  {region: "Africa" ,deaths: 679000, climate_tracker_id:1},
+  {region: "South-East Asia" ,deaths: 2274500, climate_tracker_id:1},
+  {region: "Americas" ,deaths: 95600, climate_tracker_id:1},
+  {region: "Eastern Mediterranean Region" ,deaths: 13700, climate_tracker_id:1},
+  {region: "European Region" ,deaths: 294900, climate_tracker_id:1},
+  {region: "Western Pacific Region" ,deaths: 2817200, climate_tracker_id:1},
+  {region: "Global" ,deaths: 7054600, climate_tracker_id:1},
 ])
 Co2tracker.create!([
   {year: 1958, ppm: 314.67, climate_tracker_id: 4},
