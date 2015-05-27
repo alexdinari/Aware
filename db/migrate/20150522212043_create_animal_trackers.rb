@@ -3,6 +3,7 @@ class CreateAnimalTrackers < ActiveRecord::Migration
     create_table :animal_trackers do |t|
       t.string :name
       t.date :date
+      t.string :url
       t.integer :count
       t.references :climate_tracker, index: true, foreign_key: true
 

@@ -90,3 +90,5 @@ AirQualityTracker.create!([
   {date: 2000, city_name:"Delhi", pm25: 153, climate_tracker_id: 1},
   {date: 2015, city_name:"Delhi", pm25: 153, climate_tracker_id: 1}
 ])
+
+
