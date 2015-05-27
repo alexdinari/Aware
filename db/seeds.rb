@@ -67,3 +67,26 @@ Co2tracker.create!([
   {year: 2014, ppm: 398.78, climate_tracker_id: 4},
   {year: 2015, ppm: 403.26, climate_tracker_id: 4}
 ])
+
+AirQualityTracker.create!([
+  {date: 2000, city_name:"Los Angeles", pm25: 20, climate_tracker_id: 1},
+  {date: 2015, city_name:"Los Angeles", pm25: 10.1, climate_tracker_id: 1},
+  {date: 2000, city_name:"Beijing", pm25: 56, climate_tracker_id: 1},
+  {date: 2015, city_name:"Beijing", pm25: 113.6, climate_tracker_id: 1},
+  {date: 2000, city_name:"London", pm25: 16, climate_tracker_id: 1},
+  {date: 2015, city_name:"London", pm25: 9.6, climate_tracker_id: 1},
+  {date: 2000, city_name:"Sydney", pm25: 5, climate_tracker_id: 1},
+  {date: 2015, city_name:"Sydney", pm25: 15.9, climate_tracker_id: 1},
+  {date: 2000, city_name:"New York", pm25: 20, climate_tracker_id: 1},
+  {date: 2015, city_name:"New York", pm25: 15.9, climate_tracker_id: 1}, 
+  {date: 2000, city_name:"Tokyo", pm25: 10, climate_tracker_id: 1},
+  {date: 2015, city_name:"Tokyo", pm25: 10, climate_tracker_id: 1},
+  {date: 2000, city_name:"Paris", pm25: 17, climate_tracker_id: 1},
+  {date: 2015, city_name:"Paris", pm25: 13.1, climate_tracker_id: 1},
+  {date: 2000, city_name:"Ghana", pm25: 49, climate_tracker_id: 1},
+  {date: 2015, city_name:"Ghana", pm25: 49, climate_tracker_id: 1},    
+  {date: 2000, city_name:"Moscow", pm25: 22, climate_tracker_id: 1},
+  {date: 2015, city_name:"Moscow", pm25: 28.3, climate_tracker_id: 1},
+  {date: 2000, city_name:"Delhi", pm25: 153, climate_tracker_id: 1},
+  {date: 2015, city_name:"Delhi", pm25: 153, climate_tracker_id: 1}
+])
