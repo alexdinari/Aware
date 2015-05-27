@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20150522212103) do
   enable_extension "plpgsql"
 
   create_table "air_quality_trackers", force: :cascade do |t|
-    t.date     "date"
+    t.integer  "date"
     t.string   "city_name"
     t.float    "pm10"
     t.float    "pm25"
@@ -50,8 +50,10 @@ ActiveRecord::Schema.define(version: 20150522212103) do
   add_index "animal_trackers", ["climate_tracker_id"], name: "index_animal_trackers_on_climate_tracker_id", using: :btree
 
   create_table "climate_trackers", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "topic"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "co2trackers", force: :cascade do |t|

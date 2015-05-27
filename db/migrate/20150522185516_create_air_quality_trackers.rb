@@ -1,7 +1,7 @@
 class CreateAirQualityTrackers < ActiveRecord::Migration
   def change
     create_table :air_quality_trackers do |t|
-      t.date :date
+      t.integer :date
       t.string :city_name
       t.float :pm10
       t.float :pm25
