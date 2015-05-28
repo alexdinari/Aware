@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20150522212103) do
   create_table "animal_trackers", force: :cascade do |t|
     t.string   "name"
     t.date     "date"
+    t.string   "url"
     t.integer  "count"
     t.integer  "climate_tracker_id"
     t.datetime "created_at",         null: false

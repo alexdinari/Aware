@@ -28,6 +28,13 @@ AirQualityTracker.create!([
   {date: 2015, city_name: "Moscow", pm10: nil, pm25: 28.3, climate_tracker_id: 1},
   {date: 2000, city_name: "Delhi", pm10: nil, pm25: 153.0, climate_tracker_id: 1},
   {date: 2015, city_name: "Delhi", pm10: nil, pm25: 153.0, climate_tracker_id: 1}
+  {region: "Africa" ,deaths: 679000, climate_tracker_id:1},
+  {region: "South-East Asia" ,deaths: 2274500, climate_tracker_id:1},
+  {region: "Americas" ,deaths: 95600, climate_tracker_id:1},
+  {region: "Eastern Mediterranean Region" ,deaths: 13700, climate_tracker_id:1},
+  {region: "European Region" ,deaths: 294900, climate_tracker_id:1},
+  {region: "Western Pacific Region" ,deaths: 2817200, climate_tracker_id:1},
+  {region: "Global" ,deaths: 7054600, climate_tracker_id:1},
 ])
 Co2tracker.create!([
   {year: 1958, ppm: 314.67, climate_tracker_id: 4},
@@ -128,6 +135,7 @@ GlacierTracker.create!([
   {year: 2011, melt_rate: -15.65, climate_tracker_id: 5},
   {year: 2012, melt_rate: -16.29, climate_tracker_id: 5}
 ])
+
 SealevelTracker.create!([
   {year: 1976, sea_level: -20.0, climate_tracker_id: 6},
   {year: 1977, sea_level: -22.0, climate_tracker_id: 6},
@@ -164,3 +172,18 @@ SealevelTracker.create!([
   {year: 2008, sea_level: 49.0, climate_tracker_id: 6},
   {year: 2009, sea_level: 55.0, climate_tracker_id: 6}
 ])
+
+AnimalTracker.create!([
+  {name: "Amur Leopard", date: 2015, url: "https://www.worldwildlife.org/species/amur-leopard" , count: 59, climate_tracker_id: 3},
+  {name: "Black Rhino", date: 2015, url: "https://www.worldwildlife.org/species/black-rhino" , count: 4848, climate_tracker_id: 3},
+  {name: "Cross River Gorilla", date: 2015, url: "https://www.worldwildlife.org/species/cross-river-gorilla" , count: 211, climate_tracker_id: 3},
+  {name: "Hawksbill Turtle", date: 2015, url: "https://www.worldwildlife.org/species/hawksbill-turtle" , count: 150, climate_tracker_id: 3},
+  {name: "Javan Rhino", date: 2015, url: "https://www.worldwildlife.org/species/javan-rhino" , count: 32, climate_tracker_id: 3},
+  {name: "Leatherback Turtle", date: 2015, url: "https://www.worldwildlife.org/species/leatherback-turtle" , count: 112, climate_tracker_id: 3},
+  {name: "Mountain Gorilla", date: 2015, url: "https://www.worldwildlife.org/species/mountain-gorilla" , count: 880, climate_tracker_id: 3},
+  {name: "Sumatran Orangutan", date: 2015, url: "https://www.worldwildlife.org/species/sumatran-orangutan" , count: 7300, climate_tracker_id: 3},
+  {name: "South China Tiger", date: 2015, url: "https://www.worldwildlife.org/species/south-china-tiger" , count: 3, climate_tracker_id: 3},
+  {name: "Sumatran Elephant", date: 2015, url: "https://www.worldwildlife.org/species/sumatran-elephant" , count: 2000, climate_tracker_id: 3},
+  {name: "Sumatran Tiger", date: 2015, url: "https://www.worldwildlife.org/species/sumatran-tiger" , count: 350, climate_tracker_id: 3},
+  ])
+
