@@ -5,7 +5,6 @@
       'ui.router',
       'ngResource',
       'templates',
-      'ngKookies'
     ]);
 
 })();
