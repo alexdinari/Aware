@@ -15,6 +15,9 @@ Rails.application.routes.draw do
       #/api/v1/glacier
       resources :glaciertrackers, :path => 'glacier'
 
+      #/api/v1/globaltemp
+      resources :globaltemptrackers, :path => 'globaltemp'      
+
       #/api/v1/sealevel
       resources :sealeveltrackers, :path => 'sealevel'
 

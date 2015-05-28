@@ -1,6 +1,6 @@
-class CreateAirTemperatures < ActiveRecord::Migration
+class CreateGlobaltempTrackers < ActiveRecord::Migration
   def change
-    create_table :air_temperatures do |t|
+    create_table :globaltemp_trackers do |t|
       t.integer :year
       t.float :temp
       t.references :climate_tracker, index: true, foreign_key: true
