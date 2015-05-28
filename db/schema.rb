@@ -19,8 +19,9 @@ ActiveRecord::Schema.define(version: 20150522212103) do
   create_table "air_quality_trackers", force: :cascade do |t|
     t.integer  "date"
     t.string   "city_name"
-    t.float    "pm10"
     t.float    "pm25"
+    t.float    "deaths"
+    t.string   "region"
     t.integer  "climate_tracker_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
@@ -40,7 +41,7 @@ ActiveRecord::Schema.define(version: 20150522212103) do
 
   create_table "animal_trackers", force: :cascade do |t|
     t.string   "name"
-    t.date     "date"
+    t.integer  "date"
     t.string   "url"
     t.integer  "count"
     t.integer  "climate_tracker_id"

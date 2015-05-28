@@ -9,7 +9,9 @@ Rails.application.routes.draw do
       #/api/v1/glaciertrackers
       resources :glaciertrackers
       #/api/v1/sealeveltrackers
-      resources :sealeveltrackers      
+      resources :sealeveltrackers
+      #/api/v1/animaltrackers
+      resources :animaltrackers            
     end
   end
 end
