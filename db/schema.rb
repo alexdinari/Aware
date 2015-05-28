@@ -29,16 +29,6 @@ ActiveRecord::Schema.define(version: 20150528012308) do
 
   add_index "air_quality_trackers", ["climate_tracker_id"], name: "index_air_quality_trackers_on_climate_tracker_id", using: :btree
 
-  create_table "air_temperatures", force: :cascade do |t|
-    t.integer  "year"
-    t.float    "temp"
-    t.integer  "climate_tracker_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-  end
-
-  add_index "air_temperatures", ["climate_tracker_id"], name: "index_air_temperatures_on_climate_tracker_id", using: :btree
-
   create_table "animal_trackers", force: :cascade do |t|
     t.string   "name"
     t.integer  "date"
@@ -79,6 +69,16 @@ ActiveRecord::Schema.define(version: 20150528012308) do
 
   add_index "glacier_trackers", ["climate_tracker_id"], name: "index_glacier_trackers_on_climate_tracker_id", using: :btree
 
+  create_table "globaltemp_trackers", force: :cascade do |t|
+    t.integer  "year"
+    t.float    "temp"
+    t.integer  "climate_tracker_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "globaltemp_trackers", ["climate_tracker_id"], name: "index_globaltemp_trackers_on_climate_tracker_id", using: :btree
+
   create_table "sealevel_trackers", force: :cascade do |t|
     t.integer  "year"
     t.float    "sea_level"
@@ -112,10 +112,10 @@ ActiveRecord::Schema.define(version: 20150528012308) do
   add_index "storm_trackers", ["climate_tracker_id"], name: "index_storm_trackers_on_climate_tracker_id", using: :btree
 
   add_foreign_key "air_quality_trackers", "climate_trackers"
-  add_foreign_key "air_temperatures", "climate_trackers"
   add_foreign_key "animal_trackers", "climate_trackers"
   add_foreign_key "co2trackers", "climate_trackers"
   add_foreign_key "glacier_trackers", "climate_trackers"
+  add_foreign_key "globaltemp_trackers", "climate_trackers"
   add_foreign_key "sealevel_trackers", "climate_trackers"
   add_foreign_key "seatemp_trackers", "climate_trackers"
   add_foreign_key "storm_trackers", "climate_trackers"
