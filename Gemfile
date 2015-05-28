@@ -23,6 +23,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bower-rails'
 gem 'angularjs-rails'
+gem 'sprockets', '2.12.3'
 gem 'angular-rails-templates'
 gem 'responders', '~> 2.0'
 # background worker
