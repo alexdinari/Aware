@@ -3,7 +3,7 @@ class CreateAirQualityTrackers < ActiveRecord::Migration
     create_table :air_quality_trackers do |t|
       t.integer :date
       t.string :city_name
-      t.float :pm10
+      t.float :pm25
       t.float :deaths
       t.string :region
       t.references :climate_tracker, index: true, foreign_key: true
