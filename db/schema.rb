@@ -76,16 +76,15 @@ ActiveRecord::Schema.define(version: 20150522212103) do
 
   add_index "glacier_trackers", ["climate_tracker_id"], name: "index_glacier_trackers_on_climate_tracker_id", using: :btree
 
-  create_table "sea_trackers", force: :cascade do |t|
+  create_table "sealevel_trackers", force: :cascade do |t|
     t.integer  "year"
-    t.float    "temp"
-    t.float    "rise_rate"
+    t.float    "sea_level"
     t.integer  "climate_tracker_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
   end
 
-  add_index "sea_trackers", ["climate_tracker_id"], name: "index_sea_trackers_on_climate_tracker_id", using: :btree
+  add_index "sealevel_trackers", ["climate_tracker_id"], name: "index_sealevel_trackers_on_climate_tracker_id", using: :btree
 
   create_table "storm_trackers", force: :cascade do |t|
     t.integer  "year"
@@ -103,6 +102,6 @@ ActiveRecord::Schema.define(version: 20150522212103) do
   add_foreign_key "animal_trackers", "climate_trackers"
   add_foreign_key "co2trackers", "climate_trackers"
   add_foreign_key "glacier_trackers", "climate_trackers"
-  add_foreign_key "sea_trackers", "climate_trackers"
+  add_foreign_key "sealevel_trackers", "climate_trackers"
   add_foreign_key "storm_trackers", "climate_trackers"
 end

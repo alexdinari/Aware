@@ -8,6 +8,8 @@ Rails.application.routes.draw do
       resources :airqualitytrackers
       #/api/v1/glaciertrackers
       resources :glaciertrackers
+      #/api/v1/sealeveltrackers
+      resources :sealeveltrackers      
     end
   end
 end

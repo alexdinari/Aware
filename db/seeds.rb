@@ -4,7 +4,7 @@ ClimateTracker.create!([
   {topic: "endangered_species", description: nil},
   {topic: "co2_emissions", description: nil},
   {topic: "glacier_data", description: "Mass balance is an estimate of glacier health. A glacier with a negative mass balance will recede. The majority of glaciers in the world have a negative mass balance."},
-  {topic: "global_sea_data", description: nil},
+  {topic: "global_sea_data", description: "The extra volume of seawater comes from two places. Clearly, melting of ice sheets and glaciers on land adds water to the sea. Less obviously, water expands as it warms, so the more heat energy the ocean absorbs, the more space its water requires."},
   {topic: "storm_data", description: nil}
 ])
 AirQualityTracker.create!([
@@ -127,4 +127,40 @@ GlacierTracker.create!([
   {year: 2010, melt_rate: -14.55, climate_tracker_id: 5},
   {year: 2011, melt_rate: -15.65, climate_tracker_id: 5},
   {year: 2012, melt_rate: -16.29, climate_tracker_id: 5}
+])
+SealevelTracker.create!([
+  {year: 1976, sea_level: -20.0, climate_tracker_id: 6},
+  {year: 1977, sea_level: -22.0, climate_tracker_id: 6},
+  {year: 1978, sea_level: -16.0, climate_tracker_id: 6},
+  {year: 1979, sea_level: -20.0, climate_tracker_id: 6},
+  {year: 1980, sea_level: -14.0, climate_tracker_id: 6},
+  {year: 1981, sea_level: -2.0, climate_tracker_id: 6},
+  {year: 1982, sea_level: -8.0, climate_tracker_id: 6},
+  {year: 1983, sea_level: 0.0, climate_tracker_id: 6},
+  {year: 1984, sea_level: 0.0, climate_tracker_id: 6},
+  {year: 1985, sea_level: -11.0, climate_tracker_id: 6},
+  {year: 1986, sea_level: -10.0, climate_tracker_id: 6},
+  {year: 1987, sea_level: -9.0, climate_tracker_id: 6},
+  {year: 1988, sea_level: -5.0, climate_tracker_id: 6},
+  {year: 1989, sea_level: 0.0, climate_tracker_id: 6},
+  {year: 1990, sea_level: 0.0, climate_tracker_id: 6},
+  {year: 1991, sea_level: 3.0, climate_tracker_id: 6},
+  {year: 1992, sea_level: 6.0, climate_tracker_id: 6},
+  {year: 1993, sea_level: 2.0, climate_tracker_id: 6},
+  {year: 1994, sea_level: 5.0, climate_tracker_id: 6},
+  {year: 1995, sea_level: 10.0, climate_tracker_id: 6},
+  {year: 1996, sea_level: 14.0, climate_tracker_id: 6},
+  {year: 1997, sea_level: 22.0, climate_tracker_id: 6},
+  {year: 1998, sea_level: 15.0, climate_tracker_id: 6},
+  {year: 1999, sea_level: 21.0, climate_tracker_id: 6},
+  {year: 2000, sea_level: 22.0, climate_tracker_id: 6},
+  {year: 2001, sea_level: 27.0, climate_tracker_id: 6},
+  {year: 2002, sea_level: 26.0, climate_tracker_id: 6},
+  {year: 2003, sea_level: 35.0, climate_tracker_id: 6},
+  {year: 2004, sea_level: 34.0, climate_tracker_id: 6},
+  {year: 2005, sea_level: 34.0, climate_tracker_id: 6},
+  {year: 2006, sea_level: 35.0, climate_tracker_id: 6},
+  {year: 2007, sea_level: 39.0, climate_tracker_id: 6},
+  {year: 2008, sea_level: 49.0, climate_tracker_id: 6},
+  {year: 2009, sea_level: 55.0, climate_tracker_id: 6}
 ])
