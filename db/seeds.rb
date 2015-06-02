@@ -1,5 +1,5 @@
 ClimateTracker.create!([
-  {topic: "air_quality", description: nil, measurement_info: nil},
+  {topic: "air_quality", description: nil, measurement_info:  "Air pollution in this graph is shown as the annual average ground-level exposure to fine particulate matter measured as pm2.5 in the years 2000 & 2015."},
   {topic: "global_temperature", description: nil, measurement_info: "Global temperature is measured annually in Celcius."},
   {topic: "endangered_species", description: nil, measurement_info: nil},
   {topic: "co2_emissions", description: nil, measurement_info: "Abundance is shown in parts per million (ppm); values show the number of molecules of carbon dioxide per million molecules of dry air."},
