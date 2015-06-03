@@ -32,3 +32,12 @@ path {
   stroke: steelblue;
   stroke-width: 1.5px;
 }
+
+
+.bar1 {
+  fill: steelblue;
+}
+
+.bar2 {
+  fill: orange;
+}

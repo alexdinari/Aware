@@ -560,8 +560,147 @@
 
 			}
 
+			function airquality(){
+				var margin = {top: 80, right: 80, bottom: 80, left: 80},
+    		width = 600 - margin.left - margin.right,
+    		height = 400 - margin.top - margin.bottom;
+
+				var x = d3.scale.ordinal()
+				    .rangeRoundBands([0, width], .1);
+
+				var y0 = d3.scale.linear().domain([300, 1100]).range([height, 0]),
+				y1 = d3.scale.linear().domain([20, 80]).range([height, 0]);
+
+				var xAxis = d3.svg.axis()
+				    .scale(x)
+				    .orient("bottom");
+
+				// create left yAxis
+				var yAxisLeft = d3.svg.axis().scale(y0).ticks(4).orient("left");
+				// create right yAxis
+				var yAxisRight = d3.svg.axis().scale(y1).ticks(6).orient("right");
+
+				var svg = d3.select("body").append("svg")
+				    .attr("width", width + margin.left + margin.right)
+				    .attr("height", height + margin.top + margin.bottom)
+				    .append("g")
+				    .attr("class", "graph")
+				    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+				d3.json("http://changesapp.herokuapp.com/api/v1/airquality", function(error, data) {
+				  x.domain(data.map(function(d) { return d.city_name; }));
+				  y0.domain([0, d3.max(data, function(d) { return d.pm25; })]);
+
+				  // Displays City Names
+				  svg.append("g")
+				      .attr("class", "x axis")
+				      .attr("transform", "translate(0," + height + ")")
+				      .call(xAxis)
+				    .selectAll("text")
+				      .attr("transform", "rotate(55)")
+				      .style("text-anchor", "start");
+				      
+
+				  svg.append("g")
+				    .attr("class", "y axis axisLeft")
+				    .attr("transform", "translate(0,0)")
+				    .call(yAxisLeft)
+				  .append("text")
+				    .attr("y", 6)
+				    .attr("dy", "-2em")
+				    .style("text-anchor", "end")
+				    .text("pm 2.5");
+				  
+				  svg.append("text")
+				    .attr("x", (width / 2))             
+				    .attr("y", 0 - (margin.top / 10))
+				    .attr("text-anchor", "middle")  
+				    .style("font-size", "16px") 
+				    .style("text-decoration", "underline")  
+				    .text("Air Quality 2000 vs 2015");
+				 
+
+				  // Create Bars 
+				  bars = svg.selectAll(".bar").data(data).enter();
+
+				  // 2000 Values
+				  bars.append("rect")
+				      .attr("class", "bar1")
+				      .attr("x", function(d) { return x(d.city_name); })
+				      .attr("width", x.rangeBand()/2)
+				      // return 2000
+				      .attr("y", function(d) { 
+				        console.log(d);
+				        if (d.date == 2000) {
+				          return y0(d.pm25);
+				        };
+				      
+
+				      })
+				      .attr("height", function(d) {
+				      if (d.date == 2000) { 
+				        return height - y0(d.pm25); 
+				        }
+				      })
+				      .on("mouseover", function(d,i){
+				        svg.append('text')
+				        .text(d.pm25 + ' pm2.5')
+				        .attr({
+				          "text-anchor": "middle",
+				          x: parseFloat(d3.select(this).attr('x')),
+				          "font-family": "sans-serif",
+				          "font-size": 12,
+				          id: "tooltip" 
+				        });
+				      })
+
+				      .on("mouseout", function(){
+				        d3.select('#tooltip').remove();
+				      });
+
+				  // Creates 2015 pm2.5 bars    
+				  bars.append("rect")
+				      .attr("class", "bar2")
+				      .attr("x", function(d) { return x(d.city_name) + x.rangeBand()/2; })
+				      .attr("width", x.rangeBand() / 2)
+				      .attr("y", function(d) {
+				        if (d.date == 2015) {
+				          return y0(d.pm25); 
+				        }
+
+				      })
+				      .classed("bar2", 2) 
+				      .attr("height", function(d) { 
+				        if (d.date == 2015) 
+				        return height - y0(d.pm25); })
+				      .text(function(d){         
+				            return d.pm25;          
+				          })
+				      // Displays 2015 pm2.5 values on hover
+				      .on("mouseover", function(d,i){
+				        svg.append('text')
+				        .text(d.pm25 + ' pm2.5')
+				        .attr({
+				          "text-anchor": "middle",
+				          x: parseFloat(d3.select(this).attr('x')),
+				          "font-family": "sans-serif",
+				          "font-size": 12,
+				          id: "tooltip" 
+				        });
+				      })
+
+				      .on("mouseout", function(){
+				        d3.select('#tooltip').remove();
+				      });
+
+				});
+
+
+			}
+
 			sealevel();
 			co2emissions();
+			airquality();
 
       
     }
