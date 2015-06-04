@@ -15,8 +15,8 @@
 
 			    // Set the dimensions of the canvas / graph
 			    var margin = {top: 20, right: 20, bottom: 20, left: 50},
-			        width = 500,
-			        height = 250;  
+			        width = 690,
+			        height = 190;  
 
 			    // Parse the date / time
 			    var parseDate = d3.time.format("%d-%b-%y").parse,
@@ -45,9 +45,11 @@
 			        .interpolate("basis");    
 			        
 			    // Adds the svg canvas
-			    var svg = d3.select("body")
+			    var svg = d3.select("#air-quality")
 			        .append("svg")
 			            .attr("width", width + margin.left + margin.right)
+			            .attr("width", width + margin.left + margin.right)
+			            .attr("height", height + margin.top + margin.bottom)
 			            .attr("height", height + margin.top + margin.bottom)
 			        .append("g")
 			            .attr("transform", 
@@ -126,7 +128,7 @@
 			        .attr("y", 6)
 			        .attr("dy", ".75em")
 			        .attr("transform", "rotate(-90)")
-			        .text("Change in Global Sea Level from 1990 (millimeters)");
+			        // .text("Change in Global Sea Level from 1990 (millimeters)");
 
 			        // Add Right Y Axis Label
 			        svg.append("text")
@@ -136,7 +138,7 @@
 			        .attr("y", (0-width-20))
 			        .attr("dy", ".75em")
 			        .attr("transform", "rotate(-270)")
-			        .text("Cumulative glacier mass balance (meters of water)");    
+			        // .text("Cumulative glacier mass balance (meters of water)");    
 
 			        // Add Chart Title
 			        svg.append("text")
@@ -145,7 +147,7 @@
 			            .attr("text-anchor", "middle")  
 			            .style("font-size", "16px") 
 			            .style("text-decoration", "underline")  
-			            .text("Global Sea Level Rise vs Melting of Glaciers");
+			            // .text("Global Sea Level Rise vs Melting of Glaciers");
 
 			        // append the x line
 			        focus.append("line")
@@ -698,7 +700,7 @@
 
 			}
 
-			// sealevel();
+			sealevel();
 			// co2emissions();
 			// airquality();
 

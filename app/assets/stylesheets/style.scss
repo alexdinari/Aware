@@ -22,19 +22,6 @@ html {
   background-color: white;
 }
 
-.air-quality-container {
-  @include span-columns(6);
-  height: em(200);
-}
-
-#air-quality {
-  border-radius: $base-border-radius;
-  height: em(190);
-  width: em(700);
-  border: $base-border;
-  margin: 5px 10px 5px 10px;
-}
-
 #sea-level {
   @include span-columns(6);
   border: $base-border;
