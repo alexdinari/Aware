@@ -13,7 +13,7 @@
           // controllerAs: 'climatectrl',
         });
 
-        $urlRouterProvider.otherwise('/');
+        $urlRouterProvider.otherwise('/home');
     }
 
 })();
