@@ -28,7 +28,7 @@
 			    var y1 = d3.scale.linear().range([height - margin.top, margin.bottom]).domain([-20, 0]);
 
 			    // Define the axes
-			    var xAxis = d3.svg.axis().scale(x);
+			    var xAxis = d3.svg.axis().scale(x).orient("bottom").tickFormat(d3.format("d"));
 
 			    var yAxisLeft = d3.svg.axis().scale(y0).orient("left");
 			    var yAxisRight = d3.svg.axis().scale(y1).orient("right");
@@ -359,7 +359,8 @@
 			    var y = d3.scale.linear().range([height - margin.top, margin.bottom]).domain([-30, 60]);
 
 			    // Define the axes
-			    var xAxis = d3.svg.axis().scale(x);
+
+			    var xAxis = d3.svg.axis().scale(x).orient("bottom").tickFormat(d3.format("d"));
 			    var yAxis = d3.svg.axis().scale(y).orient("left");
 			        
 			    // Adds the svg canvas
@@ -696,80 +697,151 @@
 			}
 
 			function animaltracker(){
-			d3.json("https://changesapp.herokuapp.com/api/v1/endangered_species", function(error, json) {
-				  if (error) return console.warn(error);
-				  
-				  // CODE THAT CREATES A NEW OBJECT FROM THE API ENDPOINT
-				  var root = {};
-				  var dataset = json;
-				  root.name = "endangered_species";
-				  root.children = new Array();
-				  for ( i = 0; i < dataset.length; i++){
-				    var item = {};
-				    item.name = dataset[i].name;
-				    item.value = Number(dataset[i].count);
-				    root.children.push(item);
-				  }
+				d3.json("https://changesapp.herokuapp.com/api/v1/endangered_species", function(error, json) {
+					  if (error) return console.warn(error);
+					  
+					  // CODE THAT CREATES A NEW OBJECT FROM THE API ENDPOINT
+					  var root = {};
+					  var dataset = json;
+					  root.name = "endangered_species";
+					  root.children = new Array();
+					  for ( i = 0; i < dataset.length; i++){
+					    var item = {};
+					    item.name = dataset[i].name;
+					    item.value = Number(dataset[i].count);
+					    root.children.push(item);
+					  }
 
-				  // SETS UP THE LAYOUT STRUCTURE FOR THE BUBBLES
-				  var bubble = d3.layout.pack()
-				    .sort(null)
-				    .size([500,490])
-				    .padding(1.5);
-				  bubble.nodes(root);
+					  // SETS UP THE LAYOUT STRUCTURE FOR THE BUBBLES
+					  var bubble = d3.layout.pack()
+					    .sort(null)
+					    .size([500,490])
+					    .padding(1.5);
+					  bubble.nodes(root);
 
-				  // ASSIGNS THE VARIABLE SVG TO THE D3 #ANIMAL-TRACKER SELECTOR
-				  var svg = d3.select("#animal-tracker")
-				    .append("svg")
-				    .attr("width",700)
-				    .attr("height", 490)
-				    .attr("class","bubble");
+					  // ASSIGNS THE VARIABLE SVG TO THE D3 #ANIMAL-TRACKER SELECTOR
+					  var svg = d3.select("#animal-tracker")
+					    .append("svg")
+					    .attr("width",700)
+					    .attr("height", 490)
+					    .attr("class","bubble");
 
-				  // CREATING EACH NODE FROM THE DATA
-				  var node = svg.selectAll(".node")
-				    .data(bubble.nodes(root)
-				    .filter(function(d){ return !d.children;}))
-				    .enter()
-				    .append("g")
-				      .attr("class","node")
-				      .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+					  // CREATING EACH NODE FROM THE DATA
+					  var node = svg.selectAll(".node")
+					    .data(bubble.nodes(root)
+					    .filter(function(d){ return !d.children;}))
+					    .enter()
+					    .append("g")
+					      .attr("class","node")
+					      .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
 
-				  var tooltip = d3.select("#animal-tracker")
-				      .append("div")
-				      .style("position", "absolute")
-				      .style("z-index", "10")
-				      .style("visibility", "hidden")
-				      .style("color", "white")
-				      .style("padding", "8px")
-				      .style("background-color", "rgba(0, 0, 0, 0.75)")
-				      .style("border-radius", "6px")
-				      .style("font", "12px sans-serif")
-				      .text("tooltip");
+					  var tooltip = d3.select("#animal-tracker")
+					      .append("div")
+					      .style("position", "absolute")
+					      .style("z-index", "10")
+					      .style("visibility", "hidden")
+					      .style("color", "white")
+					      .style("padding", "8px")
+					      .style("background-color", "rgba(0, 0, 0, 0.75)")
+					      .style("border-radius", "6px")
+					      .style("font", "12px sans-serif")
+					      .text("tooltip");
 
-				  // CREATING EACH CIRCLE FROM THE NODES
-				  var colour = d3.scale.category10();
+					  // CREATING EACH CIRCLE FROM THE NODES
+					  var colour = d3.scale.category10();
 
-				  node.append("circle")
-				    .attr("class", "maincirc")
-				    .attr("r", function(d) { return d.r; })
-				    .style("fill", function(d) { return colour(d.name); })
-				    .on("mouseover", function(d) {
-				      tooltip.text(d.name + ":" + " " + d.value);
-				      tooltip.style("visibility", "visible");
-				      })
-				      .on("mousemove", function() {
-				          return tooltip.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");
-				      })
-				      .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
-				});
+					  node.append("circle")
+					    .attr("class", "maincirc")
+					    .attr("r", function(d) { return d.r; })
+					    .style("fill", function(d) { return colour(d.name); })
+					    .on("mouseover", function(d) {
+					      tooltip.text(d.name + ":" + " " + d.value);
+					      tooltip.style("visibility", "visible");
+					      })
+					      .on("mousemove", function() {
+					          return tooltip.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");
+					      })
+					      .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
+					});
 
 
 			}
+
+			function airtemp(){
+
+				var red = 75;
+		    var lastYear = 1961;
+		    var lastTemp = 6;
+
+		    jQuery(document).ready(function() {
+		      jQuery('#vmap').vectorMap({ 
+		          map: 'world_en',
+		          backgroundColor: 'white',
+		          color: '#ffffff',
+		          hoverOpacity: 0.7,
+		          selectedColor: '#666666',
+		          enableZoom: false,
+		          showTooltip: true,
+		          values: sample_data,
+		          scaleColors: ["#004b00", "#009600"],
+		          normalizeFunction: 'polynomial'
+		      });
+		    });
+
+		    d3.json('https://changesapp.herokuapp.com/api/v1/globaltemp', function(error, data){
+		      if (error) {
+		        console.log(error);
+		      } else {
+
+		        d3.select('#slider4').call(d3.slider().axis(true).min(1961).max(2014).step(1).on("slide", function(evt, value) {
+		          for (var i = 0; i < data.length; i++) {
+
+		            var delta = 0;
+
+		            if (data[i].year == value) {
+		              d3.select('#slider4text').text('Year: ' + value + ', temp: ' + data[i].temp + ' degrees Celcius');
+
+		              if (value > lastYear) {
+		                delta = data[i].temp - lastTemp;
+		                lastYear = data[i].year;
+		                lastTemp = data[i].temp;
+		                red += delta;
+		              }
+		              else if (value < lastYear) {
+		                delta = lastTemp - data[i].temp;
+		                lastYear = data[i].year;
+		                lastTemp = data[i].temp;
+		                red -= delta;         
+		              };
+
+		              $('#vmap').vectorMap('set', 'scaleColors', [rgbToHex(red, 75, 0), rgbToHex(red, 150, 0), ]);
+		            };
+			          }
+			          
+			        }));
+
+			      }
+			    });
+
+			    function componentToHex(c) {
+			        var hex = c.toString(16);
+			        return hex.length == 1 ? "0" + hex : hex;
+			    }
+
+			    function rgbToHex(r, g, b) {
+			        return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+			    }
+
+			  }			
+			
+
+
 
 			sealevel();
 			co2emissions();
 			animaltracker();
 			airquality();
+			airtemp();
 
       
     }
