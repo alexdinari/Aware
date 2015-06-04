@@ -559,8 +559,8 @@
 
 			function airquality(){
 				var margin = {top: 80, right: 80, bottom: 80, left: 80},
-    		width = 600 - margin.left - margin.right,
-    		height = 400 - margin.top - margin.bottom;
+    		width = 470 - margin.left - margin.right,
+    		height = 250 - margin.top - margin.bottom;
 
 				var x = d3.scale.ordinal()
 				    .rangeRoundBands([0, width], .1);
@@ -577,7 +577,7 @@
 				// create right yAxis
 				var yAxisRight = d3.svg.axis().scale(y1).ticks(6).orient("right");
 
-				var svg = d3.select("body").append("svg")
+				var svg = d3.select("#air-quality").append("svg")
 				    .attr("width", width + margin.left + margin.right)
 				    .attr("height", height + margin.top + margin.bottom)
 				    .append("g")
@@ -769,7 +769,7 @@
 			sealevel();
 			co2emissions();
 			animaltracker();
-			// airquality();
+			airquality();
 
       
     }

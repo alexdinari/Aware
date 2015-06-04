@@ -1,0 +1,16 @@
+/*AIR QUALITY TRACKER*/
+
+.air-quality-container {
+  @include span-columns(12);
+  @include omega();
+  height: em(250);
+}
+
+#air-quality {
+  border-radius: $base-border-radius;
+  @include span-columns(6 of 12);
+  height: em(240);
+  border: $base-border;
+  margin: 5px 10px 5px 20px;
+  box-shadow: 0 2px 4px darken($base-background-color, 10%)
+}

@@ -41,6 +41,7 @@ gem 'bourbon'
 gem 'bitters'
 gem 'neat'
 gem 'refills'
+gem 'font-awesome-sass'
 gem 'httparty', '0.11.0'
 gem 'active_model_serializers'
 # Use Unicorn as the app server
