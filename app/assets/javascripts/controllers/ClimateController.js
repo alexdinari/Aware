@@ -714,15 +714,15 @@
 				  // SETS UP THE LAYOUT STRUCTURE FOR THE BUBBLES
 				  var bubble = d3.layout.pack()
 				    .sort(null)
-				    .size([960,960])
+				    .size([500,490])
 				    .padding(1.5);
 				  bubble.nodes(root);
 
-				  // ASSIGNS THE VARIABLE SVG TO THE D3 #CHART SELECTOR
-				  var svg = d3.select("#chart")
+				  // ASSIGNS THE VARIABLE SVG TO THE D3 #ANIMAL-TRACKER SELECTOR
+				  var svg = d3.select("#animal-tracker")
 				    .append("svg")
-				    .attr("width",960)
-				    .attr("height", 960)
+				    .attr("width",700)
+				    .attr("height", 490)
 				    .attr("class","bubble");
 
 				  // CREATING EACH NODE FROM THE DATA
@@ -734,7 +734,7 @@
 				      .attr("class","node")
 				      .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
 
-				  var tooltip = d3.select("body")
+				  var tooltip = d3.select("#animal-tracker")
 				      .append("div")
 				      .style("position", "absolute")
 				      .style("z-index", "10")

@@ -1,14 +1,14 @@
 /*ANIMAL TRACKER*/
 
 .animal-tracker-container {
-  @include span-columns(6);
+  @include span-columns(5);
   height: em(500);
 }
 
 #animal-tracker {
   border-radius: $base-border-radius;
   height: em(490);
-  width: em(700);
+  width: 100%;
   border: $base-border;
   margin: 5px 10px 5px 10px;
 }
