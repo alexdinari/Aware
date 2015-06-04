@@ -25,7 +25,7 @@ html {
 #sea-level {
   @include span-columns(6);
   border: $base-border;
-  height: em(200);
+  height: em(250);
   border-radius: $base-border-radius;
   @include omega;
 }
@@ -33,7 +33,7 @@ html {
 #sea-temp {
   @include span-columns(6);
   border: $base-border;
-  height: em(200);
+  height: em(250);
   border-radius: $base-border-radius;
 }
 

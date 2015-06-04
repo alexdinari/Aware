@@ -45,15 +45,13 @@
 			        .interpolate("basis");    
 			        
 			    // Adds the svg canvas
-			    var svg = d3.select("#air-quality")
+			    var svg = d3.select("#glaciar-sealevel")
 			        .append("svg")
-			            .attr("width", width + margin.left + margin.right)
-			            .attr("width", width + margin.left + margin.right)
-			            .attr("height", height + margin.top + margin.bottom)
-			            .attr("height", height + margin.top + margin.bottom)
-			        .append("g")
-			            .attr("transform", 
-			                  "translate(" + margin.left + "," + margin.top + ")");
+			            .attr("width", width)
+			            .attr("height", height)
+			        .append("g");
+			            // .attr("transform", 
+			            //       "translate(" + margin.left + "," + margin.top + ")");
 
 			    var lineSvg = svg.append("g");                             
 

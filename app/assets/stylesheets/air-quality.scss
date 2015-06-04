@@ -1,11 +1,11 @@
-.air-quality-container {
+.glaciar-sealevel-container {
   @include span-columns(6);
-  height: em(200);
+  height: em(250);
 }
 
-#air-quality {
+#glaciar-sealevel {
   border-radius: $base-border-radius;
-  height: em(190);
+  height: em(240);
   width: em(700);
   border: $base-border;
   margin: 5px 10px 5px 10px;
