@@ -11,4 +11,9 @@
   width: 100%;
   border: $base-border;
   margin: 5px 10px 5px 10px;
+  box-shadow: 0 2px 4px darken($base-background-color, 10%)
+}
+
+.maincirc:hover {
+  fill-opacity: 0.5;
 }
