@@ -16,3 +16,12 @@
   @import "bourbon";
   @import "base/base";
   @import "neat";
+
+  #pieChartStat{
+      position: absolute;
+      line-height: 200px;
+      text-align: center;
+      color: white;
+      width: 200px;
+      font-size: 68px;
+}

@@ -630,7 +630,7 @@
 				      .attr("width", x.rangeBand()/2)
 				      // return 2000
 				      .attr("y", function(d) { 
-				        console.log(d);
+				        // console.log(d);
 				        if (d.date == 2000) {
 				          return y0(d.pm25);
 				        };
@@ -698,10 +698,65 @@
 
 			}
 
+		// ANGULAR HTTP Request for Air Quality Stats
+			var airStats = $resource('https://changesapp.herokuapp.com/api/v1/airquality');
+    	var ctrl = this;
+    	var promise = $http.get('https://changesapp.herokuapp.com/api/v1/airquality').success(function(data, status, headers, config){
+      return data;  
+    	});
+
+    	promise.then(function(response){
+      	ctrl.airStats = response.data;
+   
+    	});
+
+    	function deforestation(){
+    		var dataset = [
+          {count: 90 }, 
+          {count: 10 },
+        ];
+
+        var width = 200;
+        var height = 200;
+        var radius = Math.min(width, height) / 2;
+
+        var color = d3.scale.category20b();
+
+        var svg = d3.select('#piechart')
+          .append('svg')
+          .attr('width', width)
+          .attr('height', height)
+          .append('g')
+          .attr('transform', 'translate(' + (width / 2) + 
+            ',' + (height / 2) + ')');
+
+          
+
+        var arc = d3.svg.arc()
+          .outerRadius(radius);
+
+        var pie = d3.layout.pie()
+          .value(function(d) { return d.count; })
+          .sort(null);
+
+        var path = svg.selectAll('path')
+          .data(pie(dataset))
+          .enter()
+          .append('path')
+          .attr('d', arc)
+          .attr('fill', function(d, i) { 
+            return color(d.data.count);
+          });      
+
+
+       }
+
+
+
 			sealevel();
 			co2emissions();
 			airquality();
-
+			deforestation();
       
     }
 
