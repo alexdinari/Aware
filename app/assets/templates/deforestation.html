@@ -1,0 +1,178 @@
+<!-- PASTE THIS CODE  -->
+<!-- HTML -->
+
+<!-- Total Deaths from Air Quality Statistics -->
+<div class="airQualityDeaths">
+  <h5>Total # Deaths attributed to Air Quality</h5>
+   <div class="totalDeaths" ng-repeat="airStats in climatectrl.airStats">    
+    <tr>
+    <th><b>{{airStats.region}}</b></th>
+    </tr> 
+    <tr>
+    <td>{{airStats.deaths}}</td>
+    </tr>
+  </div>
+</div> 
+</br>
+<!-- Deforestation Info -->
+<div class="deforestation">
+  <h4>Deforestation Statistics</h4>
+  <div id="statOne">
+    <div id="football">
+      <b>36</b>
+
+    </div>
+    <i><b>Football Fields</b> worth of trees lost every minute</i>
+
+  <div id"statTwo">
+    <img src="images/panama.png">
+    <p>An estimated 18 million acres (7.3 million hectares) of forest, which is roughly the size of the country of Panama, are lost each year.</p>
+  </div>
+  <div id="statThree">
+   <div id="piechart">
+    <span id="pieChartStat"><b>90%</b></span>
+    </div>
+    <i>of the United States indigenous forest has been removed since 1600.</i>
+  </div>    
+  <div id= "statFour">
+    <div id="tree"><b>300</b></div>
+
+    <p><b>Billion tons of CARBON</b>, 40 times the annual greenhouse gas emissions from fossil fuels, is stored in trees, according to Greenpeace.</p>
+  </div>
+  <div id="statFive">
+    <p>According to National Geographic, 70 % of the worlds plants and animals live in forests and are losing their habitats to deforestation.</p>
+  </div> 
+</div>
+
+
+
+
+<!-- JS -->
+
+    // ANGULAR HTTP Request for Air Quality Stats
+      var airStats = $resource('https://changesapp.herokuapp.com/api/v1/airquality');
+      var ctrl = this;
+      var promise = $http.get('https://changesapp.herokuapp.com/api/v1/airquality').success(function(data, status, headers, config){
+      return data;  
+      });
+
+      promise.then(function(response){
+        ctrl.airStats = response.data;
+   
+      });
+
+      function deforestation(){
+        var dataset = [
+          {count: 90 }, 
+          {count: 10 },
+        ];
+
+        var width = 200;
+        var height = 200;
+        var radius = Math.min(width, height) / 2;
+
+        var color = d3.scale.category20b();
+
+        var svg = d3.select('#piechart')
+          .append('svg')
+          .attr('width', width)
+          .attr('height', height)
+          .append('g')
+          .attr('transform', 'translate(' + (width / 2) + 
+            ',' + (height / 2) + ')');
+
+          
+
+        var arc = d3.svg.arc()
+          .outerRadius(radius);
+
+        var pie = d3.layout.pie()
+          .value(function(d) { return d.count; })
+          .sort(null);
+
+        var path = svg.selectAll('path')
+          .data(pie(dataset))
+          .enter()
+          .append('path')
+          .attr('d', arc)
+          .attr('fill', function(d, i) { 
+            return color(d.data.count);
+          });      
+
+
+       }
+
+
+
+<!-- CSS -->
+
+.deforestation{
+  height: 600px;
+  width: 100%;
+  display: inline-block;
+  position: relative;
+  width: flex-grid(4);        
+  margin-left: flex-gutter();
+
+}
+
+#statOne{
+  display: inline-block;
+}
+#statTwo{
+  display: inline-block;
+  height: 100px;
+  width: 100px;
+  background-position: relative;
+
+}
+#statThree{
+  display: inline-block;
+ 
+
+}
+#statFour{
+  display: inline-block;
+  
+}
+#statFive{
+  display: inline-block;
+  
+}
+
+#pieChartStat{
+    position: absolute;
+    line-height: 200px;
+    text-align: center;
+    color: white;
+    width: 200px;
+    font-size: 68px;
+}
+
+#football{
+  background-image: url('football.ico');
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 200px;
+  width: 200px;
+  text-align: center;
+  line-height:200px;
+  font-size: 60px;
+  text-shadow: 5px 5px 5px whitesmoke;
+
+}
+
+#tree{
+  background-image:image-url('tree.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  line-height: 200px;
+  text-align: center;
+  color: black;
+  width: 300px;
+  height: 300px;
+  font-size: 24px;
+
+}
+
