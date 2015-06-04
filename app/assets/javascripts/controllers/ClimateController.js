@@ -23,7 +23,7 @@
 			        bisectDate = d3.bisector(function(d) { return d.year; }).left; 
 
 			    // Set the ranges
-			    var x = d3.scale.linear().range([margin.left, width - margin.right]).domain([1975, 2015])
+			    var x = d3.scale.linear().range([margin.left, width - margin.right]).domain([1975, 2015]);
 			    var y0 = d3.scale.linear().range([height - margin.top, margin.bottom]).domain([-30, 60]);
 			    var y1 = d3.scale.linear().range([height - margin.top, margin.bottom]).domain([-20, 0]);
 
@@ -47,11 +47,10 @@
 			    // Adds the svg canvas
 			    var svg = d3.select("#glaciar-sealevel")
 			        .append("svg")
+			        		.attr("class", "glacier-svg")
 			            .attr("width", width)
 			            .attr("height", height)
 			        .append("g");
-			            // .attr("transform", 
-			            //       "translate(" + margin.left + "," + margin.top + ")");
 
 			    var lineSvg = svg.append("g");                             
 

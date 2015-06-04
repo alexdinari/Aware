@@ -33,7 +33,7 @@ html {
 #sea-temp {
   @include span-columns(6);
   border: $base-border;
-  height: em(250);
+  height: em(200);
   border-radius: $base-border-radius;
 }
 
