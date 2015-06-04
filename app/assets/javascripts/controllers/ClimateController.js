@@ -347,8 +347,8 @@
 
 			    // Set the dimensions of the canvas / graph
 			    var margin = {top: 20, right: 20, bottom: 20, left: 50},
-			        width = 500,
-			        height = 250;  
+			        width = 690,
+			        height = 190;  
 
 			    // Parse the date / time
 			    var parseDate = d3.time.format("%d-%b-%y").parse,
@@ -363,13 +363,12 @@
 			    var yAxis = d3.svg.axis().scale(y).orient("left");
 			        
 			    // Adds the svg canvas
-			    var svg = d3.select("body")
+			    var svg = d3.select("#c02-tracker")
 			        .append("svg")
-			            .attr("width", width + margin.left + margin.right)
-			            .attr("height", height + margin.top + margin.bottom)
-			        .append("g")
-			            .attr("transform", 
-			                  "translate(" + margin.left + "," + margin.top + ")");
+			        		.attr("class", "c02-svg")
+			            .attr("width", width)
+			            .attr("height", height)
+			        .append("g");
 
 			    var lineSvg = svg.append("g");                             
 
@@ -431,8 +430,7 @@
 			        .attr("x", -50)
 			        .attr("y", 6)
 			        .attr("dy", ".75em")
-			        .attr("transform", "rotate(-90)")
-			        .text("CO2 Emissions (ppm)");
+			        .attr("transform", "rotate(-90)");
 
 			        // Add Chart Title
 			        svg.append("text")
@@ -697,8 +695,80 @@
 
 			}
 
+			function animaltracker(){
+			d3.json("https://changesapp.herokuapp.com/api/v1/endangered_species", function(error, json) {
+				  if (error) return console.warn(error);
+				  
+				  // CODE THAT CREATES A NEW OBJECT FROM THE API ENDPOINT
+				  var root = {};
+				  var dataset = json;
+				  root.name = "endangered_species";
+				  root.children = new Array();
+				  for ( i = 0; i < dataset.length; i++){
+				    var item = {};
+				    item.name = dataset[i].name;
+				    item.value = Number(dataset[i].count);
+				    root.children.push(item);
+				  }
+
+				  // SETS UP THE LAYOUT STRUCTURE FOR THE BUBBLES
+				  var bubble = d3.layout.pack()
+				    .sort(null)
+				    .size([960,960])
+				    .padding(1.5);
+				  bubble.nodes(root);
+
+				  // ASSIGNS THE VARIABLE SVG TO THE D3 #CHART SELECTOR
+				  var svg = d3.select("#chart")
+				    .append("svg")
+				    .attr("width",960)
+				    .attr("height", 960)
+				    .attr("class","bubble");
+
+				  // CREATING EACH NODE FROM THE DATA
+				  var node = svg.selectAll(".node")
+				    .data(bubble.nodes(root)
+				    .filter(function(d){ return !d.children;}))
+				    .enter()
+				    .append("g")
+				      .attr("class","node")
+				      .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+
+				  var tooltip = d3.select("body")
+				      .append("div")
+				      .style("position", "absolute")
+				      .style("z-index", "10")
+				      .style("visibility", "hidden")
+				      .style("color", "white")
+				      .style("padding", "8px")
+				      .style("background-color", "rgba(0, 0, 0, 0.75)")
+				      .style("border-radius", "6px")
+				      .style("font", "12px sans-serif")
+				      .text("tooltip");
+
+				  // CREATING EACH CIRCLE FROM THE NODES
+				  var colour = d3.scale.category10();
+
+				  node.append("circle")
+				    .attr("class", "maincirc")
+				    .attr("r", function(d) { return d.r; })
+				    .style("fill", function(d) { return colour(d.name); })
+				    .on("mouseover", function(d) {
+				      tooltip.text(d.name + ":" + " " + d.value);
+				      tooltip.style("visibility", "visible");
+				      })
+				      .on("mousemove", function() {
+				          return tooltip.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");
+				      })
+				      .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
+				});
+
+
+			}
+
 			sealevel();
-			// co2emissions();
+			co2emissions();
+			animaltracker();
 			// airquality();
 
       

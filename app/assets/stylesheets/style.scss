@@ -22,25 +22,17 @@ html {
   background-color: white;
 }
 
-#sea-level {
-  @include span-columns(6);
-  border: $base-border;
-  height: em(250);
-  border-radius: $base-border-radius;
-  @include omega;
-}
+// #sea-temp {
+//   @include span-columns(6);
+//   border: $base-border;
+//   height: em(200);
+//   border-radius: $base-border-radius;
+// }
 
-#sea-temp {
-  @include span-columns(6);
-  border: $base-border;
-  height: em(200);
-  border-radius: $base-border-radius;
-}
-
-#air-temp {
-  @include span-columns(6);
-  border: $base-border;
-  height: em(200);
-  border-radius: $base-border-radius;
-  @include omega;
-}
+// #air-temp {
+//   @include span-columns(6);
+//   border: $base-border;
+//   height: em(200);
+//   border-radius: $base-border-radius;
+//   @include omega;
+// }

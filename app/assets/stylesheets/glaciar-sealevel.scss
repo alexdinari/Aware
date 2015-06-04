@@ -1,3 +1,5 @@
+/*GLACIER MELTING + SEA LEVEL RISE*/
+
 .glaciar-sealevel-container {
   @include span-columns(6);
   height: em(250);
@@ -12,7 +14,7 @@
 }
 
 .glacier-svg {
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 path { 
@@ -26,10 +28,12 @@ path {
     stroke: #777;
     shape-rendering: crispEdges;
 }
+
 .axis text {
     font-family: Lato;
     font-size: 13px;
 }
+
 .tooltip {
   background: #eee;
   box-shadow: 0 0 5px #999999;
@@ -43,11 +47,6 @@ path {
   top: 95px;
   width: 80px;
   z-index: 10;
-}
-.circle {
-  fill: white;
-  stroke: steelblue;
-  stroke-width: 1.5px;
 }
 
 .bar1 {
