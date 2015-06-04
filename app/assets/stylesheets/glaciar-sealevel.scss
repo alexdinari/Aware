@@ -1,3 +1,24 @@
+/*GLACIER MELTING + SEA LEVEL RISE*/
+
+.glaciar-sealevel-container {
+  @include span-columns(6);
+  height: em(250);
+}
+
+#glaciar-sealevel {
+  border-radius: $base-border-radius;
+  font-family: $sans-serif;
+  height: em(240);
+  width: em(700);
+  border: $base-border;
+  margin: 5px 10px 5px 10px;
+  box-shadow: 0 2px 4px darken($base-background-color, 10%)
+}
+
+.glacier-svg {
+  margin-top: 30px;
+}
+
 path { 
   stroke: steelblue;
   stroke-width: 2;
@@ -9,10 +30,12 @@ path {
     stroke: #777;
     shape-rendering: crispEdges;
 }
+
 .axis text {
     font-family: Lato;
     font-size: 13px;
 }
+
 .tooltip {
   background: #eee;
   box-shadow: 0 0 5px #999999;
@@ -27,12 +50,6 @@ path {
   width: 80px;
   z-index: 10;
 }
-.circle {
-  fill: white;
-  stroke: steelblue;
-  stroke-width: 1.5px;
-}
-
 
 .bar1 {
   fill: steelblue;

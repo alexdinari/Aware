@@ -10,10 +10,10 @@
           url: '/home',
           templateUrl: 'home.html',
           controller: 'ClimateController',
-          controllerAs: 'climatectrl',
+          // controllerAs: 'climatectrl',
         });
 
-        $urlRouterProvider.otherwise('/');
+        $urlRouterProvider.otherwise('/home');
     }
 
 })();
