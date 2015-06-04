@@ -1,4 +1,3 @@
-
 /*GENERAL*******************************************************************************/
 
 html {
@@ -23,18 +22,10 @@ html {
   background-color: white;
 }
 
-// #sea-temp {
-//   @include span-columns(6);
-//   border: $base-border;
-//   height: em(200);
-//   border-radius: $base-border-radius;
-// }
+.bottomcontainer {
+  @include span-columns(8);
+  height: em(500);
+  @include outer-container;
+}
 
-// #air-temp {
-//   @include span-columns(6);
-//   border: $base-border;
-//   height: em(200);
-//   border-radius: $base-border-radius;
-//   @include omega;
-// }
 
