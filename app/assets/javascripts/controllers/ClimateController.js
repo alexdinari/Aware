@@ -340,7 +340,6 @@
 			        }                                                      
 
 			    };
-
 			}
 
 			function co2emissions() {
@@ -555,7 +554,6 @@
 			        }                                                      
 
 			    };
-
 			}
 
 			function airquality(){
@@ -692,8 +690,6 @@
 				      });
 
 				});
-
-
 			}
 
 			function animaltracker(){
@@ -763,8 +759,6 @@
 					      })
 					      .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
 					});
-
-
 			}
 
 			function airtemp(){
@@ -773,7 +767,6 @@
 		    var lastYear = 1961;
 		    var lastTemp = 6;
 
-		    jQuery(document).ready(function() {
 		      jQuery('#vmap').vectorMap({ 
 		          map: 'world_en',
 		          backgroundColor: 'white',
@@ -786,7 +779,6 @@
 		          scaleColors: ["#004b00", "#009600"],
 		          normalizeFunction: 'polynomial'
 		      });
-		    });
 
 		    d3.json('https://changesapp.herokuapp.com/api/v1/globaltemp', function(error, data){
 		      if (error) {

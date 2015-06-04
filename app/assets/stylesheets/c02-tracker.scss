@@ -1,8 +1,7 @@
 /*CO2 EMISSIONS*/
 
 .c02-tracker-container {
-  @include span-columns(6);
-  @include omega();
+  @include span-columns(8);
   height: em(250);
 }
 

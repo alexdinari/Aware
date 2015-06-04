@@ -8,6 +8,7 @@
   border-radius: $base-border-radius;
   @include fill-parent;
   height: em(240);
+  width: em(700);
   border: $base-border;
   margin: 5px 10px 5px 10px;
   box-shadow: 0 2px 4px darken($base-background-color, 10%)
