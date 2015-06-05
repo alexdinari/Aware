@@ -2,17 +2,17 @@
   // New Fonts
 @font-face {
   font-family: "Chunkfive";
-  src: font-url(/assets/Chunkfive.otf) format("opentype");
+  src: font-url(/assets/Chunkfive) format("opentype");
 }
 
 @font-face {
   font-family: "Geoma Thin";
-  src: font-url(/assets/Geoma-Thin-Demo.otf) format("opentype");
+  src: font-url(/assets/Geoma-Thin-Demo) format("opentype");
 }
 
 @font-face {
   font-family: "Los Angeleno Sans";
-  src: font-url(/assets/Los-Angeleno-Sans.ttf) format("truetype");
+  src: font-url(/assets/Los-Angeleno-Sans) format("truetype");
 }
 
 // @include font-face("Chunkfive",
