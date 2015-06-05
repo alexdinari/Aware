@@ -585,7 +585,7 @@
 				    .attr("class", "graph")
 				    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-				d3.json("http://changesapp.herokuapp.com/api/v1/airquality", function(error, data) {
+				d3.json("https://changesapp.herokuapp.com/api/v1/airquality", function(error, data) {
 				  x.domain(data.map(function(d) { return d.city_name; }));
 				  y0.domain([0, d3.max(data, function(d) { return d.pm25; })]);
 
