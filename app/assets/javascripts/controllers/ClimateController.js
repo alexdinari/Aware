@@ -60,7 +60,7 @@
 			    // Get the data
 			    queue()
 			      .defer(d3.json, "https://changesapp.herokuapp.com/api/v1/sealevel")
-			      .defer(d3.json, "http://changesapp.herokuapp.com/api/v1/glacier")
+			      .defer(d3.json, "https://changesapp.herokuapp.com/api/v1/glacier")
 			      .await(analyze);
 
 			    function analyze(error, data, data2) {    
