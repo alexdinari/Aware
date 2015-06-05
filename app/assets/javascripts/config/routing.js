@@ -22,7 +22,7 @@
             controllerAs:'welcomectrl',
         });
 
-        $urlRouterProvider.otherwise('/home');
+        $urlRouterProvider.otherwise('/');
     }
 
 })();
