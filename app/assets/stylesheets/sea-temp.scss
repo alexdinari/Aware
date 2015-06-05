@@ -16,7 +16,7 @@
 }
 
 #axis {
-  margin-left: 20px
+  margin-left: -20px
 }
 
 div.tooltip { 
@@ -34,8 +34,9 @@ div.tooltip {
 
 .seatemp {
   display: inline-block;
-  float: left;
-  margin-left: -25px;
+  float: right;
+  margin-left: -15px;
+  margin-top: 15px;
 }
 
 .axis text {

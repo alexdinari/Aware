@@ -752,10 +752,44 @@
 					    .attr("class", "maincirc")
 					    .attr("r", function(d) { return d.r; })
 					    .style("fill", function(d) { return colour(d.name); })
-					    .on("mouseover", function(d) {
-					      tooltipAni.text(d.name + ":" + " " + d.value);
-					      tooltipAni.style("visibility", "visible");
-					      })
+						   .on("mouseover", function(d) {
+	                            switch(d.name){
+	                                case 'Black Rhino':
+	                                    tooltipAni.html("<p>"+d.name+": "+d.value+" left"+"</p>"+"<img src='https://pbs.twimg.com/profile_images/588760342215274497/6_9fYuXh_400x400.jpg'>");
+	                                    break;
+	                                case 'Sumatran Tiger':
+	                                    tooltipAni.html("<p>"+d.name+": "+d.value+" left"+"</p>"+"<img src='https://pbs.twimg.com/profile_images/588775277355872256/hfjYiPGJ_400x400.jpg'>");
+	                                    break;
+	                                case 'Sumatran Elephant':
+	                                    tooltipAni.html("<p>"+d.name+": "+d.value+" left"+"</p>"+"<img src='http://s3.amazonaws.com/mongabay/indonesia/600/sumatra_9183.jpg'>");
+	                                    break;
+	                                case 'Cross River Gorilla':
+	                                    tooltipAni.html("<p>"+d.name+": "+d.value+" left"+"</p>"+"<img src='http://cdn.phys.org/newman/gfx/news/hires/2008/crossrivergo.jpg'>");
+	                                    break;
+	                                case 'Leatherback Turtle':
+	                                    tooltipAni.html("<p>"+d.name+": "+d.value+" left"+"</p>"+"<img src='https://pbs.twimg.com/profile_images/76988470/turtle_400x400.jpg'>");
+	                                    break;
+	                                case 'Amur Leopard':
+	                                    tooltipAni.html("<p>"+d.name+": "+d.value+" left"+"</p>"+"<img src='http://stockfresh.com/files/s/scheriton/m/95/2195060_stock-photo-head-shot-of-adorable-baby-amur-leopard-cub.jpg'>");
+	                                    break;
+	                                case 'Hawksbill Turtle':
+	                                    tooltipAni.html("<p>"+d.name+": "+d.value+" left"+"</p>"+"<img src='http://art.state.gov/exhibitimg.ashx?img=Canberra+2013%5c2013.0440.jpg'>");
+	                                    break;
+	                                case 'Javan Rhino':
+	                                    tooltipAni.html("<p>"+d.name+": "+d.value+" left"+"</p>"+"<img src='https://pbs.twimg.com/profile_images/574927522/javanrhino_400x400.jpg'>");
+	                                    break;            
+	                                case 'Mountain Gorilla':
+	                                    tooltipAni.html("<p>"+d.name+": "+d.value+" left"+"</p>"+"<img src='http://www.imagesofwildlife.co.uk/wp-content/uploads/Mountain-Gorilla-014-400x400.jpg'>");
+	                                    break;
+	                                case 'Sumatran Orangutan':
+	                                    tooltipAni.html("<p>"+d.name+": "+d.value+" left"+"</p>"+"<img src='http://i1-news.softpedia-static.com/images/news2/9-Things-You-Did-Not-Know-About-Orangutans-3.jpg'>");
+	                                    break;
+	                                case 'South China Tiger':
+	                                    tooltipAni.html("<p>"+d.name+": "+d.value+" left"+"</p>"+"<img src='http://www.everydayhero.com.au/events/images/0004/2892/04-TigerTrekCampaign-EDH-2000x2000.jpg?1410840136?1431907217021'>");
+	                                    break;                                                                                                                                                                    
+	                            }
+	                          tooltipAni.style("visibility", "visible");
+	                          })
 					      .on("mousemove", function() {
 					          return tooltipAni.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");
 					      })
@@ -838,9 +872,9 @@
 				    left: 50
 				};
 
-				var width = 200;
+				var width = 2700;
 				var width2 = 0;
-				var height = 600;
+				var height = 430;
 
 				//The number of columns and rows of the heatmap
 				var MapColumns = 10,
@@ -945,7 +979,6 @@
 				.attr("y", -40)
 				.attr("dy", ".75em")
 				.attr("transform", "rotate(-90)")
-				.text("Heat Content (10^22 Joules)");
 
 				// Add Chart Title
 				svg.append("text")
@@ -954,7 +987,6 @@
 				    .attr("text-anchor", "middle")  
 				    .style("font-size", "16px") 
 				    .style("text-decoration", "underline")  
-				    .text("Global Sea Temperature");  
 
 
 				//Start drawing the hexagons
