@@ -733,7 +733,7 @@
 					      .attr("class","node")
 					      .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
 
-					  var tooltip = d3.select("#animal-tracker")
+					  var tooltipAni = d3.select("#animal-tracker")
 					      .append("div")
 					      .style("position", "absolute")
 					      .style("z-index", "10")
@@ -743,7 +743,7 @@
 					      .style("background-color", "rgba(0, 0, 0, 0.75)")
 					      .style("border-radius", "6px")
 					      .style("font", "12px sans-serif")
-					      .text("tooltip");
+					      .text("tooltipAni");
 
 					  // CREATING EACH CIRCLE FROM THE NODES
 					  var colour = d3.scale.category10();
@@ -753,13 +753,13 @@
 					    .attr("r", function(d) { return d.r; })
 					    .style("fill", function(d) { return colour(d.name); })
 					    .on("mouseover", function(d) {
-					      tooltip.text(d.name + ":" + " " + d.value);
-					      tooltip.style("visibility", "visible");
+					      tooltipAni.text(d.name + ":" + " " + d.value);
+					      tooltipAni.style("visibility", "visible");
 					      })
 					      .on("mousemove", function() {
-					          return tooltip.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");
+					          return tooltipAni.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");
 					      })
-					      .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
+					      .on("mouseout", function(){return tooltipAni.style("visibility", "hidden");});
 					});
 			}
 
@@ -867,7 +867,7 @@
 				}//for i
 
 				//Create SVG element
-				var svg = d3.select("#chart").append("svg")
+				var svg = d3.select("#sea-temp").append("svg")
 				    .attr("width", width + margin.left + margin.right)
 				    .attr("height", height + margin.top + margin.bottom)
 				    .attr("class", "seatemp")
@@ -881,7 +881,7 @@
 				    .append("g")
 				    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");    
 
-				var tooltip1 = d3.select("body")
+				var tooltip1 = d3.select("sea-temp")
 				    .append("div")
 				    .attr("class", "tooltip")       
 				    .style("position", "absolute")
@@ -889,7 +889,7 @@
 				    .style("visibility", "hidden")
 				    .text("Larger marine like Tuna and most marine fish will begin dying off.");
 
-				var tooltip2 = d3.select("body")
+				var tooltip2 = d3.select("sea-temp")
 				    .append("div")
 				    .attr("class", "tooltip")
 				    .style("position", "absolute")
@@ -897,7 +897,7 @@
 				    .style("visibility", "hidden")
 				    .text("Krill and plankton life start to die off, destroying the bottom of the oceans food chain.");
 
-				var tooltip3 = d3.select("body")
+				var tooltip3 = d3.select("sea-temp")
 				    .append("div")
 				    .attr("class", "tooltip")
 				    .style("position", "absolute")
@@ -905,7 +905,7 @@
 				    .style("visibility", "hidden")
 				    .text("Coral reef degradation globally.");
 
-				var tooltip4 = d3.select("body")
+				var tooltip4 = d3.select("sea-temp")
 				    .append("div")
 				    .attr("class", "tooltip")
 				    .style("position", "absolute")
@@ -913,7 +913,7 @@
 				    .style("visibility", "hidden")
 				    .text("Ocean currents and storm patterns are affected, disrupting meteorological forecasting.");    
 
-				var tooltip5 = d3.select("body")
+				var tooltip5 = d3.select("sea-temp")
 				    .append("div")
 				    .attr("class", "tooltip")
 				    .style("position", "absolute")

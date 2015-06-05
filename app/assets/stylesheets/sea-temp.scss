@@ -14,3 +14,37 @@
   margin: 5px 0px 5px 60px;
   box-shadow: 0 2px 4px darken($base-background-color, 10%)
 }
+
+#axis {
+  margin-left: 20px
+}
+
+div.tooltip { 
+  position: absolute;     
+  text-align: center;     
+  width: 200px;          
+  height: 40px;         
+  padding: 2px;       
+  font: 12px sans-serif;    
+  background: #FFFFFF; 
+  border: 1px solid #000000;    
+  border-radius: 8px;     
+  pointer-events: none;     
+}
+
+.seatemp {
+  display: inline-block;
+  float: left;
+  margin-left: -25px;
+}
+
+.axis text {
+  font: 12px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}      

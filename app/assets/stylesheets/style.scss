@@ -3,12 +3,16 @@
 html {
   box-sizing: border-box;
   background-color: $base-background-color;
+  height: 100&;
 }
 
 *, *:before, *:after {
   box-sizing: inherit;
 }
 
+body {
+  height: 100&;
+}
 .navbar {
   @include outer-container;
   background-color: $base-navbar;
@@ -37,5 +41,3 @@ html {
   height: em(500);
   @include outer-container;
 }
-
-
