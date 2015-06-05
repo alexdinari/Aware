@@ -1,0 +1,70 @@
+@import "bourbon";
+@import "base/base";
+@import "neat";
+
+svg {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+}
+
+
+#fadein{
+  opacity: 100;
+  animation-name: fadein;
+  animation-duration: 3s;
+  animation-iteration-count: 1;
+  -webkit-animation-name: fadein;
+  -webkit-animation-duration: 3s;
+  -webkit-animation-iteration-count: 1;
+}
+
+@-webkit-keyframes fadein{
+    0%{background-color: transparent;
+       position: absolute;
+      opacity: 0;
+      }
+     44%{background-color: transparent;
+      position: absolute;
+      opacity: 50;
+      }
+    100%{background-color: transparent;
+      position: absolute;
+      opacity: 100;
+      }
+
+}
+
+.welcome{
+  position: absolute;
+  color: $light-gray;
+  padding-top: 15%;
+  padding-left: 15%;
+
+  
+}
+
+.welcome a{
+ color: white;
+}
+
+#header{
+  font-size: 50px;
+  @include animation(scale 1.0s ease-in, slide 2.0s ease);
+
+  // The above outputs the same CSS as using independent, granular mixins.
+  @include animation-name(scale, slide);
+  @include animation-duration(2s);
+  @include animation-timing-function(ease);
+  @include animation-iteration-count(infinite);
+
+}
+
+#splashbutton{
+  border: solid white 1px;
+  margin-top: 10px;
+}
+
