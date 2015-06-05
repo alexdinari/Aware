@@ -22,7 +22,6 @@
 path { 
   stroke: steelblue;
   stroke-width: 2;
-  fill: none;
 }
 
 .axis path {
@@ -31,7 +30,7 @@ path {
     shape-rendering: crispEdges;
 }
 
-.axis text {
+.axis2 text {
     font-family: Lato;
     font-size: 13px;
 }

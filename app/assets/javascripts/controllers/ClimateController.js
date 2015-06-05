@@ -82,11 +82,13 @@
 			        // Add the valueline path.
 			        lineSvg.append("path")                                 
 			            .attr("class", "line")
+			            .style("fill", "none")
 			            .attr("d", valueline(data));
 
 			        // Add the valueline2 path.
 			        lineSvg.append("path")                                 
 			            .attr("class", "line")
+			            .style("fill", "none")
 			            .attr("d", valueline2(data2));        
 
 			        // Add the X Axis
@@ -826,14 +828,243 @@
 
 			  }			
 			
+			function seatemp(){
 
+				//svg sizes and margins
+				var margin = {
+				    top: 30,
+				    right: 20,
+				    bottom: 20,
+				    left: 50
+				};
+
+				var width = 200;
+				var width2 = 0;
+				var height = 600;
+
+				//The number of columns and rows of the heatmap
+				var MapColumns = 10,
+					MapRows = 30;
+	
+				//The maximum radius the hexagons can have to still fit the screen
+				var hexRadius = d3.min([width/((MapColumns + 0.5) * Math.sqrt(3)),
+							height/((MapRows + 1/3) * 1.5)]);
+
+				//Set the new height and width of the SVG based on the max possible
+				width = MapColumns*hexRadius*Math.sqrt(3);
+				heigth = MapRows*1.5*hexRadius+0.5*hexRadius;
+
+				//Set the hexagon radius
+				var hexbin = d3.hexbin()
+				    	       .radius(hexRadius);
+
+				//Calculate the center positions of each hexagon	
+				var points = [];
+				for (var i = 0; i < MapRows; i++) {
+				    for (var j = 0; j < MapColumns; j++) {
+				        points.push([hexRadius * j * 1.75, hexRadius * i * 1.5]);
+				    }//for j
+				}//for i
+
+				//Create SVG element
+				var svg = d3.select("#chart").append("svg")
+				    .attr("width", width + margin.left + margin.right)
+				    .attr("height", height + margin.top + margin.bottom)
+				    .attr("class", "seatemp")
+				    .append("g")
+				    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+				//Create SVG element
+				var svg2 = d3.select("#axis").append("svg")
+				    .attr("width", width2 + margin.left + margin.right)
+				    .attr("height", height + margin.top + margin.bottom)
+				    .append("g")
+				    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");    
+
+				var tooltip1 = d3.select("body")
+				    .append("div")
+				    .attr("class", "tooltip")       
+				    .style("position", "absolute")
+				    .style("z-index", "10")
+				    .style("visibility", "hidden")
+				    .text("Larger marine like Tuna and most marine fish will begin dying off.");
+
+				var tooltip2 = d3.select("body")
+				    .append("div")
+				    .attr("class", "tooltip")
+				    .style("position", "absolute")
+				    .style("z-index", "10")
+				    .style("visibility", "hidden")
+				    .text("Krill and plankton life start to die off, destroying the bottom of the oceans food chain.");
+
+				var tooltip3 = d3.select("body")
+				    .append("div")
+				    .attr("class", "tooltip")
+				    .style("position", "absolute")
+				    .style("z-index", "10")
+				    .style("visibility", "hidden")
+				    .text("Coral reef degradation globally.");
+
+				var tooltip4 = d3.select("body")
+				    .append("div")
+				    .attr("class", "tooltip")
+				    .style("position", "absolute")
+				    .style("z-index", "10")
+				    .style("visibility", "hidden")
+				    .text("Ocean currents and storm patterns are affected, disrupting meteorological forecasting.");    
+
+				var tooltip5 = d3.select("body")
+				    .append("div")
+				    .attr("class", "tooltip")
+				    .style("position", "absolute")
+				    .style("z-index", "10")
+				    .style("visibility", "hidden")
+				    .text("Ocean is healthy!");     
+
+
+				//Create Y Scale
+				var y = d3.scale.linear()
+				  .domain([0, 35])
+				  .range([480, 0]);
+
+				//Create Y Axis
+				var yAxis = d3.svg.axis()
+				  .scale(y)
+				  .orient("left")
+				  // .tickSize(6, -width);
+
+				svg2.append("g")
+				  .attr("class", "y axis")
+				  .call(yAxis);  
+
+				// Add Left Y Axis Label
+				svg2.append("text")
+				.attr("class", "y label")
+				.attr("text-anchor", "end")
+				.attr("x", -120)
+				.attr("y", -40)
+				.attr("dy", ".75em")
+				.attr("transform", "rotate(-90)")
+				.text("Heat Content (10^22 Joules)");
+
+				// Add Chart Title
+				svg.append("text")
+				    .attr("x", (width / 2)-5)             
+				    .attr("y", -15)
+				    .attr("text-anchor", "middle")  
+				    .style("font-size", "16px") 
+				    .style("text-decoration", "underline")  
+				    .text("Global Sea Temperature");  
+
+
+				//Start drawing the hexagons
+				svg.append("g")
+				    .selectAll(".hexagon")
+				    .data(hexbin(points))
+				    .enter().append("path")
+				    .attr("class", "hexagon")
+				    .attr("d", function (d) {
+						return "M" + d.x + "," + d.y + hexbin.hexagon();
+					})
+				    .attr("stroke", function (d,i) {
+						return "#fff";
+					})
+				    .attr("stroke-width", "1px")
+				    .style("fill", function (d,i) {
+				        if (i < 10) { return "#FF1205" }
+				        else if (i >= 10 && i < 20) { return "#FF3405" }
+				        else if (i >= 20 && i < 30) { return "#FF5605" } 
+				        else if (i >= 30 && i < 40) { return "#FF7805" }
+				        else if (i >= 40 && i < 50) { return "#FF9B05" }
+				        else if (i >= 50 && i < 60) { return "#FFBD05" }
+				        else if (i >= 60 && i < 70) { return "#FFDF05" }
+				        else if (i >= 70 && i < 80) { return "#FFFF05" }
+				        else if (i >= 80 && i < 90) { return "#D9FF05" }
+				        else if (i >= 90 && i < 100) { return "#B7FF05" }
+				        else if (i >= 100 && i < 110) { return "#94FF05" } 
+				        else if (i >= 110 && i < 120) { return "#72FF05" }
+				        else if (i >= 120 && i < 130) { return "#50FF05" } 
+				        else if (i >= 130 && i < 140) { return "#2DFF05" }
+				        else if (i >= 140 && i < 150) { return "#0BFF05" }
+				        else if (i >= 150 && i < 160) { return "#05FF20" }
+				        else if (i >= 160 && i < 170) { return "#05FF42" }
+				        else if (i >= 170 && i < 180) { return "#05FF65" }
+				        else if (i >= 180 && i < 190) { return "#05FF87" }
+				        else if (i >= 190 && i < 200) { return "#05FFA9" }
+				        else if (i >= 200 && i < 210) { return "#05FFCC" }
+				        else if (i >= 210 && i < 220) { return "#05FFEE" }
+				        else if (i >= 220 && i < 230) { return "#05EDFF" } 
+				        else if (i >= 230 && i < 240) { return "#05CAFF" }
+				        else if (i >= 240 && i < 250) { return "#05A8FF" }
+				        else if (i >= 250 && i < 260) { return "#0586FF" }
+				        else if (i >= 260 && i < 270) { return "#0563FF" }
+				        else if (i >= 270 && i < 280) { return "#0541FF" }
+				        else if (i >= 280 && i < 290) { return "#051FFF" }
+				        else if (i >= 290 && i < 300) { return "#0D05FF" }    
+					})
+				    .on("mousemove", function(d, i){
+				        if (i < 50) { return tooltip1.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px"); }
+				        else if (i >= 50 && i < 90) { return tooltip2.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px"); }
+				        else if (i >= 90 && i < 170) { return tooltip3.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px"); }
+				        else if (i >= 170 && i < 220) { return tooltip4.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px"); }
+				        else { return tooltip5.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px"); }
+				    })
+					// .on("mouseover", mover)
+				    .on("mouseover", function(d, i){
+				        if (i < 50) {
+				            d3.select(this).transition().duration(10).style("fill-opacity", 0.3);
+				            return tooltip1.style("visibility", "visible"); 
+				        }
+				        else if (i >= 50 && i < 90) {
+				            d3.select(this).transition().duration(10).style("fill-opacity", 0.3);
+				            return tooltip2.style("visibility", "visible"); 
+				        }
+				        else if (i >= 90 && i < 170) {
+				            d3.select(this).transition().duration(10).style("fill-opacity", 0.3);
+				            return tooltip3.style("visibility", "visible"); 
+				        }  
+				        else if (i >= 170 && i < 220) {
+				            d3.select(this).transition().duration(10).style("fill-opacity", 0.3);
+				            return tooltip4.style("visibility", "visible"); 
+				        }  
+				        else {
+				            d3.select(this).transition().duration(10).style("fill-opacity", 0.3);
+				            return tooltip5.style("visibility", "visible"); 
+				        } 
+				    })
+					// .on("mouseout", mout)
+				    .on("mouseout", function(d, i){
+				        if (i < 50) {
+				            d3.select(this).transition().duration(1000).style("fill-opacity", 1);
+				            return tooltip1.style("visibility", "hidden"); 
+				        }
+				        else if (i >= 50 && i < 90) {
+				            d3.select(this).transition().duration(1000).style("fill-opacity", 1);
+				            return tooltip2.style("visibility", "hidden"); 
+				        }
+				        else if (i >= 90 && i < 170) {
+				            d3.select(this).transition().duration(1000).style("fill-opacity", 1);
+				            return tooltip3.style("visibility", "hidden"); 
+				        }   
+				        else if (i >= 170 && i < 220) {
+				            d3.select(this).transition().duration(1000).style("fill-opacity", 1);
+				            return tooltip4.style("visibility", "hidden"); 
+				        }        
+				        else {
+				            d3.select(this).transition().duration(1000).style("fill-opacity", 1);
+				            return tooltip5.style("visibility", "hidden"); 
+				        }
+				    })
+					;
+			}
 
 
 			sealevel();
 			co2emissions();
 			animaltracker();
 			airquality();
-			// airtemp();
+			airtemp();
+			seatemp();
 
       
     }
