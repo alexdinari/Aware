@@ -10,16 +10,16 @@ html {
 }
 
 .navbar {
+  @include outer-container;
   background-color: $base-navbar;
   height: em(60);
-  position: relative;
 }
 
 .apptitle {
   font-family: $base-font-family;
   width: 15%;
   color: $base-navfont-color;
-  margin: 0 0 12px 12px;
+  margin: 0 0 0 12px;
   font-size: 50px;
   vertical-align: middle;
 }

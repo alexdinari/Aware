@@ -1,8 +1,9 @@
 // Typography
   // New Fonts
+
 @font-face {
-  font-family: "Chunkfive";
-  src: font-url(/assets/Chunkfive) format("opentype");
+       font-family: "Chunkfive";
+       src: url(/assets/Chunkfive.otf) format("opentype");
 }
 
 @font-face {
@@ -14,21 +15,6 @@
   font-family: "Los Angeleno Sans";
   src: font-url(/assets/Los-Angeleno-Sans) format("truetype");
 }
-
-// @include font-face("Chunkfive",
-//                   "fonts/Chunkfive",
-//                   $asset-pipeline: true,
-//                   $file-formats: otf);
-
-// @include font-face("Geoma Thin",
-//                 "fonts/Geoma-Thin-Demo",
-//                 $asset-pipeline: true,
-//                 $file-formats: otf);
-
-// @include font-face("Los Angeleno Sans",
-//                 "fonts/Los-Angeleno-Sans",
-//                 $asset-pipeline: true,
-//                 $file-formats: ttf);
 
 $base-font-family: "Chunkfive";
 $heading-font-family: $base-font-family;

@@ -1,15 +1,15 @@
-/*AIR QUALITY TRACKER*/
+/*DEFORESTATION TRACKER*/
 
-.air-quality-container {
+.deforesation-container {
   @include span-columns(4);
   height: em(250);
 }
 
-#air-quality {
+#deforesation {
   border-radius: $base-border-radius;
   @include fill-parent;
   height: em(240);
   border: $base-border;
-  margin: 5px 10px 5px 20px;
+  margin: 5px 10px 5px 10px;
   box-shadow: 0 2px 4px darken($base-background-color, 10%)
 }
