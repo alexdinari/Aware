@@ -1,0 +1,86 @@
+@import "bourbon";
+@import "base/base";
+@import "neat";
+
+svg {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+}
+
+.welcome{
+  position: absolute;
+  color: $light-gray;
+  padding-top: 15%;
+  padding-left: 15%;
+  opacity: 0;
+  
+}
+
+.welcome a{
+ color: white;
+}
+
+#header{
+  font-size: 60px;
+
+}
+
+#splashbutton{
+  border: solid white 1px;
+  margin-top: 40px;
+}
+
+.cycle{
+  margin-top: 44px;
+  width:350px;
+  height: 350px;
+}
+
+
+
+#icon1{
+  background-image: image-url("factory.png");
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+
+ 
+}
+#icon2{
+  background-image: image-url("thermometer.jpg");
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+}
+
+#icon3{
+  background-image: image-url("watertemp.png");
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  display: inline-block;
+}
+#icon4{
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  background-image: image-url("icon-bear.png");
+}
+#icon5{
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  display: inline-block;
+  background-image:image-url('tree.png');
+}
+
+.earth{
+  background-image:image-url('earth.png');
+  width: 100%;
+  height:100%;
+}
+
