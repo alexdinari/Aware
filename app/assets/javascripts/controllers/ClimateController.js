@@ -557,8 +557,8 @@
 			}
 
 			function airquality(){
-				var margin = {top: 80, right: 80, bottom: 80, left: 80},
-    		width = 470 - margin.left - margin.right,
+				var margin = {top: 80, right: 80, bottom: 80, left: 40},
+    		width = 360 - margin.left - margin.right,
     		height = 250 - margin.top - margin.bottom;
 
 				var x = d3.scale.ordinal()
