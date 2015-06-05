@@ -1,0 +1,37 @@
+svg {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+}
+
+.welcome{
+  position: absolute;
+  color: $light-gray;
+  padding-top: 15%;
+  padding-left: 15%;
+  opacity: 0;
+  
+}
+
+.welcome a{
+ color: white;
+}
+
+#header{
+  font-size: 60px;
+
+}
+
+#splashbutton{
+  border: solid white 1px;
+  margin-top: 40px;
+}
+
+.cycle{
+  margin-top: 44px;
+  width:350px;
+  height: 350px;
+}
