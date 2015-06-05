@@ -60,12 +60,12 @@
 			    // Get the data
 			    queue()
 			      .defer(d3.json, "https://changesapp.herokuapp.com/api/v1/sealevel")
-			      .defer(d3.json, "http://changesapp.herokuapp.com/api/v1/glacier")
+			      .defer(d3.json, "https://changesapp.herokuapp.com/api/v1/glacier")
 			      .await(analyze);
 
 			    function analyze(error, data, data2) {    
 			        data.forEach(function(d) {
-			            d.year = d.year
+			            d.year = d.year;
 			            d.sea_level = d.sea_level;
 			        });
 			        data2.forEach(function(d) {
@@ -126,7 +126,7 @@
 			        .attr("x", 0)
 			        .attr("y", 6)
 			        .attr("dy", ".75em")
-			        .attr("transform", "rotate(-90)")
+			        .attr("transform", "rotate(-90)");
 			        // .text("Change in Global Sea Level from 1990 (millimeters)");
 
 			        // Add Right Y Axis Label
@@ -136,7 +136,7 @@
 			        .attr("x", 250)
 			        .attr("y", (0-width-20))
 			        .attr("dy", ".75em")
-			        .attr("transform", "rotate(-270)")
+			        .attr("transform", "rotate(-270)");
 			        // .text("Cumulative glacier mass balance (meters of water)");    
 
 			        // Add Chart Title
@@ -145,7 +145,7 @@
 			            .attr("y", 0 - (margin.top / 10))
 			            .attr("text-anchor", "middle")  
 			            .style("font-size", "16px") 
-			            .style("text-decoration", "underline")  
+			            .style("text-decoration", "underline");
 			            // .text("Global Sea Level Rise vs Melting of Glaciers");
 
 			        // append the x line
@@ -341,14 +341,14 @@
 
 			        }                                                      
 
-			    };
+			    }
 			}
 
 			function co2emissions() {
 
 			    // Set the dimensions of the canvas / graph
 			    var margin = {top: 20, right: 20, bottom: 20, left: 50},
-			        width = 690,
+			        width = 600,
 			        height = 190;  
 
 			    // Parse the date / time
@@ -356,7 +356,7 @@
 			        bisectDate = d3.bisector(function(d) { return d.year; }).left; 
 
 			    // Set the ranges
-			    var x = d3.scale.linear().range([margin.left, width - margin.right]).domain([1975, 2015])
+			    var x = d3.scale.linear().range([margin.left, width - margin.right]).domain([1975, 2015]);
 			    var y = d3.scale.linear().range([height - margin.top, margin.bottom]).domain([-30, 60]);
 
 			    // Define the axes
@@ -384,7 +384,7 @@
 
 			    function analyze(error, data) {    
 			        data.forEach(function(d) {
-			            d.year = d.year
+			            d.year = d.year;
 			            d.ppm = d.ppm;
 			        });
 
@@ -555,7 +555,7 @@
 
 			        }                                                      
 
-			    };
+			    }
 			}
 
 			function airquality(){
@@ -585,7 +585,7 @@
 				    .attr("class", "graph")
 				    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-				d3.json("http://changesapp.herokuapp.com/api/v1/airquality", function(error, data) {
+				d3.json("https://changesapp.herokuapp.com/api/v1/airquality", function(error, data) {
 				  x.domain(data.map(function(d) { return d.city_name; }));
 				  y0.domain([0, d3.max(data, function(d) { return d.pm25; })]);
 
@@ -628,7 +628,6 @@
 				      .attr("width", x.rangeBand()/2)
 				      // return 2000
 				      .attr("y", function(d) { 
-				        console.log(d);
 				        if (d.date == 2000) {
 				          return y0(d.pm25);
 				        };
@@ -674,6 +673,7 @@
 				      .text(function(d){         
 				            return d.pm25;          
 				          })
+
 				      // Displays 2015 pm2.5 values on hover
 				      .on("mouseover", function(d,i){
 				        svg.append('text')
@@ -733,7 +733,7 @@
 					      .attr("class","node")
 					      .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
 
-					  var tooltip = d3.select("#animal-tracker")
+					  var tooltipAni = d3.select("#animal-tracker")
 					      .append("div")
 					      .style("position", "absolute")
 					      .style("z-index", "10")
@@ -743,7 +743,7 @@
 					      .style("background-color", "rgba(0, 0, 0, 0.75)")
 					      .style("border-radius", "6px")
 					      .style("font", "12px sans-serif")
-					      .text("tooltip");
+					      .text("tooltipAni");
 
 					  // CREATING EACH CIRCLE FROM THE NODES
 					  var colour = d3.scale.category10();
@@ -752,14 +752,48 @@
 					    .attr("class", "maincirc")
 					    .attr("r", function(d) { return d.r; })
 					    .style("fill", function(d) { return colour(d.name); })
-					    .on("mouseover", function(d) {
-					      tooltip.text(d.name + ":" + " " + d.value);
-					      tooltip.style("visibility", "visible");
-					      })
+						   .on("mouseover", function(d) {
+	                            switch(d.name){
+	                                case 'Black Rhino':
+	                                    tooltipAni.html("<p>"+d.name+": "+d.value+" left"+"</p>"+"<img src='https://pbs.twimg.com/profile_images/588760342215274497/6_9fYuXh_400x400.jpg'>");
+	                                    break;
+	                                case 'Sumatran Tiger':
+	                                    tooltipAni.html("<p>"+d.name+": "+d.value+" left"+"</p>"+"<img src='https://pbs.twimg.com/profile_images/588775277355872256/hfjYiPGJ_400x400.jpg'>");
+	                                    break;
+	                                case 'Sumatran Elephant':
+	                                    tooltipAni.html("<p>"+d.name+": "+d.value+" left"+"</p>"+"<img src='http://s3.amazonaws.com/mongabay/indonesia/600/sumatra_9183.jpg'>");
+	                                    break;
+	                                case 'Cross River Gorilla':
+	                                    tooltipAni.html("<p>"+d.name+": "+d.value+" left"+"</p>"+"<img src='http://cdn.phys.org/newman/gfx/news/hires/2008/crossrivergo.jpg'>");
+	                                    break;
+	                                case 'Leatherback Turtle':
+	                                    tooltipAni.html("<p>"+d.name+": "+d.value+" left"+"</p>"+"<img src='https://pbs.twimg.com/profile_images/76988470/turtle_400x400.jpg'>");
+	                                    break;
+	                                case 'Amur Leopard':
+	                                    tooltipAni.html("<p>"+d.name+": "+d.value+" left"+"</p>"+"<img src='http://stockfresh.com/files/s/scheriton/m/95/2195060_stock-photo-head-shot-of-adorable-baby-amur-leopard-cub.jpg'>");
+	                                    break;
+	                                case 'Hawksbill Turtle':
+	                                    tooltipAni.html("<p>"+d.name+": "+d.value+" left"+"</p>"+"<img src='http://art.state.gov/exhibitimg.ashx?img=Canberra+2013%5c2013.0440.jpg'>");
+	                                    break;
+	                                case 'Javan Rhino':
+	                                    tooltipAni.html("<p>"+d.name+": "+d.value+" left"+"</p>"+"<img src='https://pbs.twimg.com/profile_images/574927522/javanrhino_400x400.jpg'>");
+	                                    break;            
+	                                case 'Mountain Gorilla':
+	                                    tooltipAni.html("<p>"+d.name+": "+d.value+" left"+"</p>"+"<img src='http://www.imagesofwildlife.co.uk/wp-content/uploads/Mountain-Gorilla-014-400x400.jpg'>");
+	                                    break;
+	                                case 'Sumatran Orangutan':
+	                                    tooltipAni.html("<p>"+d.name+": "+d.value+" left"+"</p>"+"<img src='http://i1-news.softpedia-static.com/images/news2/9-Things-You-Did-Not-Know-About-Orangutans-3.jpg'>");
+	                                    break;
+	                                case 'South China Tiger':
+	                                    tooltipAni.html("<p>"+d.name+": "+d.value+" left"+"</p>"+"<img src='http://www.everydayhero.com.au/events/images/0004/2892/04-TigerTrekCampaign-EDH-2000x2000.jpg?1410840136?1431907217021'>");
+	                                    break;                                                                                                                                                                    
+	                            }
+	                          tooltipAni.style("visibility", "visible");
+	                          })
 					      .on("mousemove", function() {
-					          return tooltip.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");
+					          return tooltipAni.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");
 					      })
-					      .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
+					      .on("mouseout", function(){return tooltipAni.style("visibility", "hidden");});
 					});
 			}
 
@@ -838,9 +872,9 @@
 				    left: 50
 				};
 
-				var width = 200;
+				var width = 2700;
 				var width2 = 0;
-				var height = 600;
+				var height = 430;
 
 				//The number of columns and rows of the heatmap
 				var MapColumns = 10,
@@ -867,7 +901,7 @@
 				}//for i
 
 				//Create SVG element
-				var svg = d3.select("#chart").append("svg")
+				var svg = d3.select("#sea-temp").append("svg")
 				    .attr("width", width + margin.left + margin.right)
 				    .attr("height", height + margin.top + margin.bottom)
 				    .attr("class", "seatemp")
@@ -881,41 +915,41 @@
 				    .append("g")
 				    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");    
 
-				var tooltip1 = d3.select("body")
+				var tooltip1 = d3.select("#sea-temp")
 				    .append("div")
-				    .attr("class", "tooltip")       
+				    .attr("class", "tooltipsea")       
 				    .style("position", "absolute")
 				    .style("z-index", "10")
 				    .style("visibility", "hidden")
 				    .text("Larger marine like Tuna and most marine fish will begin dying off.");
 
-				var tooltip2 = d3.select("body")
+				var tooltip2 = d3.select("#sea-temp")
 				    .append("div")
-				    .attr("class", "tooltip")
+				    .attr("class", "tooltipsea")
 				    .style("position", "absolute")
 				    .style("z-index", "10")
 				    .style("visibility", "hidden")
 				    .text("Krill and plankton life start to die off, destroying the bottom of the oceans food chain.");
 
-				var tooltip3 = d3.select("body")
+				var tooltip3 = d3.select("#sea-temp")
 				    .append("div")
-				    .attr("class", "tooltip")
+				    .attr("class", "tooltipsea")
 				    .style("position", "absolute")
 				    .style("z-index", "10")
 				    .style("visibility", "hidden")
 				    .text("Coral reef degradation globally.");
 
-				var tooltip4 = d3.select("body")
+				var tooltip4 = d3.select("#sea-temp")
 				    .append("div")
-				    .attr("class", "tooltip")
+				    .attr("class", "tooltipsea")
 				    .style("position", "absolute")
 				    .style("z-index", "10")
 				    .style("visibility", "hidden")
 				    .text("Ocean currents and storm patterns are affected, disrupting meteorological forecasting.");    
 
-				var tooltip5 = d3.select("body")
+				var tooltip5 = d3.select("#sea-temp")
 				    .append("div")
-				    .attr("class", "tooltip")
+				    .attr("class", "tooltipsea")
 				    .style("position", "absolute")
 				    .style("z-index", "10")
 				    .style("visibility", "hidden")
@@ -945,7 +979,6 @@
 				.attr("y", -40)
 				.attr("dy", ".75em")
 				.attr("transform", "rotate(-90)")
-				.text("Heat Content (10^22 Joules)");
 
 				// Add Chart Title
 				svg.append("text")
@@ -954,7 +987,6 @@
 				    .attr("text-anchor", "middle")  
 				    .style("font-size", "16px") 
 				    .style("text-decoration", "underline")  
-				    .text("Global Sea Temperature");  
 
 
 				//Start drawing the hexagons
@@ -1058,6 +1090,47 @@
 					;
 			}
 
+			function deforestation(){
+
+      	var dataset = [
+        {count: 90 }, 
+         {count: 10 },
+       	];
+
+	       var width = 100;
+	       var height = 100;
+	       var radius = Math.min(width, height) / 2;
+
+	       var color = d3.scale.category20b();
+
+	       var svg = d3.select('#piechart')
+	         .append('svg')
+	          .attr('width', width)
+	          .attr('height', height)
+	          .append('g')
+	          .attr('transform', 'translate(' + (width / 2) + 
+	          ',' + (height / 2) + ')');
+
+	         
+
+	        var arc = d3.svg.arc()
+	          .outerRadius(radius);
+
+	        var pie = d3.layout.pie()
+	          .value(function(d) { return d.count; })
+	          .sort(null);
+
+	        var path = svg.selectAll('path')
+	          .data(pie(dataset))
+	          .enter()
+	          .append('path')
+	          .attr('d', arc)
+	          .attr('fill', function(d, i) { 
+	            return color(d.data.count);
+	          });      
+					}
+
+
 
 			sealevel();
 			co2emissions();
@@ -1065,11 +1138,9 @@
 			airquality();
 			airtemp();
 			seatemp();
+			deforestation();
 
-      
-    }
-
-
+}
 
 
 })();

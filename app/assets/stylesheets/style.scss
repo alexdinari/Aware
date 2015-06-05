@@ -3,23 +3,27 @@
 html {
   box-sizing: border-box;
   background-color: $base-background-color;
+  height: 100&;
 }
 
 *, *:before, *:after {
   box-sizing: inherit;
 }
 
+body {
+  height: 100&;
+}
 .navbar {
+  @include outer-container;
   background-color: $base-navbar;
   height: em(60);
-  position: relative;
 }
 
 .apptitle {
   font-family: $base-font-family;
   width: 15%;
   color: $base-navfont-color;
-  margin: 0 0 12px 12px;
+  margin: 0 0 0 12px;
   font-size: 50px;
   vertical-align: middle;
 }
@@ -33,9 +37,7 @@ html {
 }
 
 .bottomcontainer {
-  @include span-columns(8);
+  @include span-columns(5);
   height: em(500);
   @include outer-container;
 }
-
-

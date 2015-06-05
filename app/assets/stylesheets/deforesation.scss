@@ -1,0 +1,35 @@
+/*DEFORESTATION TRACKER*/
+
+.deforesation-container {
+  @include span-columns(6);
+  height: em(250);
+}
+
+#deforesation {
+  border-radius: $base-border-radius;
+  height: em(240);
+  width: em(310);
+  border: $base-border;
+  margin: 5px 10px 5px 40px;
+  box-shadow: 0 2px 4px darken($base-background-color, 10%)
+}
+
+#pieChartStat{
+    // position: absolute;
+    line-height: em(100);
+    text-align: center;
+    color: $blue;
+    width: em(100);
+    font-size: 68px;
+    font-family: $Geoma-font-family;
+}
+
+#statThree{
+  // display: inline-block;
+  @include fill-parent;
+}
+
+#us-text {
+  font-family: $Geoma-font-family;
+
+}

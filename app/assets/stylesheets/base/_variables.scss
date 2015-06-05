@@ -1,20 +1,24 @@
 // Typography
   // New Fonts
-  @font-face {
-        font-family: "Chunkfive";
-        src: url(/assets/Chunkfive.otf) format("opentype");
-    }
-  @font-face {
-        font-family: "Geoma Thin";
-        src: url(/assets/Geoma-Thin-Demo.otf) format("opentype");
-    }
-  @font-face {
-        font-family: "Los Angeleno Sans";
-        src: url(/assets/Los-Angeleno-Sans.ttf) format("truetype");
-    }
 
+@font-face {
+       font-family: "Chunkfive";
+       src: url(/assets/Chunkfive.otf) format("opentype");
+}
+
+@font-face {
+  font-family: "Geoma Thin";
+  src: font-url(/assets/Geoma-Thin-Demo) format("opentype");
+}
+
+@font-face {
+  font-family: "Los Angeleno Sans";
+  src: font-url(/assets/Los-Angeleno-Sans) format("truetype");
+}
 
 $base-font-family: "Chunkfive";
+$Geoma-font-family: "Geoma Thin";
+$Angeleno-font-family: "Los Angeleno Sans";
 $heading-font-family: $base-font-family;
 $sans-serif: 'Nunito', sans-serif;
 $sans-serif-2: 'Varela Round', sans-serif;
@@ -43,6 +47,7 @@ $light-gray: #ddd;
 // Font Colors
 $base-background-color: $medium-gray;
 $base-font-color: $blue;
+$tooltip-back: rgba(0, 0, 0, 0.75);
 $base-navfont-color: white;
 $action-color: $blue;
 $base-navbar: $blue;

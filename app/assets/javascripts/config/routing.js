@@ -2,18 +2,17 @@
 
   angular
     .module('ChangesApp')
-    .config(config);
-
-    function config($stateProvider, $urlRouterProvider){
+    .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
       $stateProvider
-        .state('home', {
-          url: '/home',
-          templateUrl: 'home.html',
-          controller: 'ClimateController',
-          // controllerAs: 'climatectrl',
-        });
+      .state('home', {
+        url: '/home',
+        templateUrl: 'home.html',
+        controller: 'ClimateController',
+      });
 
-        $urlRouterProvider.otherwise('/home');
+      $urlRouterProvider.otherwise('/home');
     }
+
+    ]);
 
 })();
