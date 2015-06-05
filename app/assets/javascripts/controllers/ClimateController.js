@@ -65,7 +65,7 @@
 
 			    function analyze(error, data, data2) {    
 			        data.forEach(function(d) {
-			            d.year = d.year
+			            d.year = d.year;
 			            d.sea_level = d.sea_level;
 			        });
 			        data2.forEach(function(d) {
@@ -126,7 +126,7 @@
 			        .attr("x", 0)
 			        .attr("y", 6)
 			        .attr("dy", ".75em")
-			        .attr("transform", "rotate(-90)")
+			        .attr("transform", "rotate(-90)");
 			        // .text("Change in Global Sea Level from 1990 (millimeters)");
 
 			        // Add Right Y Axis Label
@@ -136,7 +136,7 @@
 			        .attr("x", 250)
 			        .attr("y", (0-width-20))
 			        .attr("dy", ".75em")
-			        .attr("transform", "rotate(-270)")
+			        .attr("transform", "rotate(-270)");
 			        // .text("Cumulative glacier mass balance (meters of water)");    
 
 			        // Add Chart Title
@@ -145,7 +145,7 @@
 			            .attr("y", 0 - (margin.top / 10))
 			            .attr("text-anchor", "middle")  
 			            .style("font-size", "16px") 
-			            .style("text-decoration", "underline")  
+			            .style("text-decoration", "underline");
 			            // .text("Global Sea Level Rise vs Melting of Glaciers");
 
 			        // append the x line
@@ -341,7 +341,7 @@
 
 			        }                                                      
 
-			    };
+			    }
 			}
 
 			function co2emissions() {
@@ -356,7 +356,7 @@
 			        bisectDate = d3.bisector(function(d) { return d.year; }).left; 
 
 			    // Set the ranges
-			    var x = d3.scale.linear().range([margin.left, width - margin.right]).domain([1975, 2015])
+			    var x = d3.scale.linear().range([margin.left, width - margin.right]).domain([1975, 2015]);
 			    var y = d3.scale.linear().range([height - margin.top, margin.bottom]).domain([-30, 60]);
 
 			    // Define the axes
@@ -384,7 +384,7 @@
 
 			    function analyze(error, data) {    
 			        data.forEach(function(d) {
-			            d.year = d.year
+			            d.year = d.year;
 			            d.ppm = d.ppm;
 			        });
 
@@ -555,7 +555,7 @@
 
 			        }                                                      
 
-			    };
+			    }
 			}
 
 			function airquality(){
@@ -915,41 +915,41 @@
 				    .append("g")
 				    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");    
 
-				var tooltip1 = d3.select("sea-temp")
+				var tooltip1 = d3.select("#sea-temp")
 				    .append("div")
-				    .attr("class", "tooltip")       
+				    .attr("class", "tooltipsea")       
 				    .style("position", "absolute")
 				    .style("z-index", "10")
 				    .style("visibility", "hidden")
 				    .text("Larger marine like Tuna and most marine fish will begin dying off.");
 
-				var tooltip2 = d3.select("sea-temp")
+				var tooltip2 = d3.select("#sea-temp")
 				    .append("div")
-				    .attr("class", "tooltip")
+				    .attr("class", "tooltipsea")
 				    .style("position", "absolute")
 				    .style("z-index", "10")
 				    .style("visibility", "hidden")
 				    .text("Krill and plankton life start to die off, destroying the bottom of the oceans food chain.");
 
-				var tooltip3 = d3.select("sea-temp")
+				var tooltip3 = d3.select("#sea-temp")
 				    .append("div")
-				    .attr("class", "tooltip")
+				    .attr("class", "tooltipsea")
 				    .style("position", "absolute")
 				    .style("z-index", "10")
 				    .style("visibility", "hidden")
 				    .text("Coral reef degradation globally.");
 
-				var tooltip4 = d3.select("sea-temp")
+				var tooltip4 = d3.select("#sea-temp")
 				    .append("div")
-				    .attr("class", "tooltip")
+				    .attr("class", "tooltipsea")
 				    .style("position", "absolute")
 				    .style("z-index", "10")
 				    .style("visibility", "hidden")
 				    .text("Ocean currents and storm patterns are affected, disrupting meteorological forecasting.");    
 
-				var tooltip5 = d3.select("sea-temp")
+				var tooltip5 = d3.select("#sea-temp")
 				    .append("div")
-				    .attr("class", "tooltip")
+				    .attr("class", "tooltipsea")
 				    .style("position", "absolute")
 				    .style("z-index", "10")
 				    .style("visibility", "hidden")
@@ -1090,6 +1090,47 @@
 					;
 			}
 
+			function deforestation(){
+
+      	var dataset = [
+        {count: 90 }, 
+         {count: 10 },
+       	];
+
+	       var width = 100;
+	       var height = 100;
+	       var radius = Math.min(width, height) / 2;
+
+	       var color = d3.scale.category20b();
+
+	       var svg = d3.select('#piechart')
+	         .append('svg')
+	          .attr('width', width)
+	          .attr('height', height)
+	          .append('g')
+	          .attr('transform', 'translate(' + (width / 2) + 
+	          ',' + (height / 2) + ')');
+
+	         
+
+	        var arc = d3.svg.arc()
+	          .outerRadius(radius);
+
+	        var pie = d3.layout.pie()
+	          .value(function(d) { return d.count; })
+	          .sort(null);
+
+	        var path = svg.selectAll('path')
+	          .data(pie(dataset))
+	          .enter()
+	          .append('path')
+	          .attr('d', arc)
+	          .attr('fill', function(d, i) { 
+	            return color(d.data.count);
+	          });      
+					}
+
+
 
 			sealevel();
 			co2emissions();
@@ -1097,11 +1138,9 @@
 			airquality();
 			airtemp();
 			seatemp();
+			deforestation();
 
-      
-    }
-
-
+}
 
 
 })();
