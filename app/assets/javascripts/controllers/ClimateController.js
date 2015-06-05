@@ -833,7 +833,7 @@
 			co2emissions();
 			animaltracker();
 			airquality();
-			airtemp();
+			// airtemp();
 
       
     }

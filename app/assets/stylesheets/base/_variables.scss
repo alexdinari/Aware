@@ -1,4 +1,19 @@
 // Typography
+  // New Fonts
+  @font-face {
+        font-family: "Chunkfive";
+        src: url(/assets/Chunkfive.otf) format("opentype");
+    }
+  @font-face {
+        font-family: "Geoma Thin";
+        src: url(/assets/Geoma-Thin-Demo.otf) format("opentype");
+    }
+  @font-face {
+        font-family: "Los Angeleno Sans";
+        src: url(/assets/Los-Angeleno-Sans.ttf) format("truetype");
+    }
+
+
 $base-font-family: $helvetica;
 $heading-font-family: $base-font-family;
 $sans-serif: 'Nunito', sans-serif;
