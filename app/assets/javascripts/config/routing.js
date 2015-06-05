@@ -10,7 +10,16 @@
           url: '/home',
           templateUrl: 'home.html',
           controller: 'ClimateController',
-          // controllerAs: 'climatectrl',
+          controllerAs: 'climatectrl',
+        });
+
+
+      $stateProvider
+        .state('welcome', {
+            url:'/',
+            templateUrl: 'welcome.html',
+            controller: 'WelcomeController',
+            controllerAs:'welcomectrl',
         });
 
         $urlRouterProvider.otherwise('/home');
