@@ -33,7 +33,7 @@ html {
 }
 
 .bottomcontainer {
-  @include span-columns(8);
+  @include span-columns(5);
   height: em(500);
   @include outer-container;
 }

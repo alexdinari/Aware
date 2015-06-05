@@ -10,15 +10,19 @@
   border-radius: $base-border-radius;
   @include fill-parent;
   height: em(240);
-  width: em(700);
+  width: em(705);
   border: $base-border;
-  margin: 5px 10px 5px 10px;
+  margin: 5px 10px 5px 5px;
   box-shadow: 0 2px 4px darken($base-background-color, 10%)
 }
 
 #slider4 {
  width: 300px;
- top: 70px;
- right: 48px;
+ top: 75px;
+ right: 70px;
  position: absolute;
+}
+
+#vmap {
+  float: right;
 }

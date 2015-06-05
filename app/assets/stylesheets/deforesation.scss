@@ -1,15 +1,15 @@
 /*DEFORESTATION TRACKER*/
 
 .deforesation-container {
-  @include span-columns(4);
+  @include span-columns(6);
   height: em(250);
 }
 
 #deforesation {
   border-radius: $base-border-radius;
-  @include fill-parent;
   height: em(240);
+  width: em(310);
   border: $base-border;
-  margin: 5px 10px 5px 10px;
+  margin: 5px 10px 5px 40px;
   box-shadow: 0 2px 4px darken($base-background-color, 10%)
 }

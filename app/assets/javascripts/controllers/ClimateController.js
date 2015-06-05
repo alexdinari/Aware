@@ -348,7 +348,7 @@
 
 			    // Set the dimensions of the canvas / graph
 			    var margin = {top: 20, right: 20, bottom: 20, left: 50},
-			        width = 690,
+			        width = 600,
 			        height = 190;  
 
 			    // Parse the date / time
@@ -628,7 +628,6 @@
 				      .attr("width", x.rangeBand()/2)
 				      // return 2000
 				      .attr("y", function(d) { 
-				        console.log(d);
 				        if (d.date == 2000) {
 				          return y0(d.pm25);
 				        };
@@ -674,6 +673,7 @@
 				      .text(function(d){         
 				            return d.pm25;          
 				          })
+
 				      // Displays 2015 pm2.5 values on hover
 				      .on("mouseover", function(d,i){
 				        svg.append('text')
