@@ -8,9 +8,18 @@
         url: '/home',
         templateUrl: 'home.html',
         controller: 'ClimateController',
+        controllerAs: 'climatectrl',
       });
 
-      $urlRouterProvider.otherwise('/home');
+      $stateProvider
+        .state('welcome', {
+            url:'/',
+           templateUrl: 'welcome.html',
+           controller: 'WelcomeController',
+            controllerAs:'welcomectrl',
+        });
+
+      $urlRouterProvider.otherwise('/');
     }
 
     ]);
