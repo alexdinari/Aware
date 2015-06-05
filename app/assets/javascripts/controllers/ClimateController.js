@@ -787,7 +787,7 @@
 		        console.log(error);
 		      } else {
 
-		        d3.select('#slider4').call(d3.slider().axis(true).min(1961).max(2014).step(1).on("slide", function(evt, value) {
+		        d3.select('#slider4').call(d3.slider().min(1961).max(2014).step(1).on("slide", function(evt, value) {
 		          for (var i = 0; i < data.length; i++) {
 
 		            var delta = 0;

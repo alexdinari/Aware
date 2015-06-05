@@ -11,8 +11,17 @@ html {
 
 .navbar {
   background-color: $base-navbar;
-  color: $base-navfont-color;
   height: em(60);
+  position: relative;
+}
+
+.apptitle {
+  font-family: $base-font-family;
+  width: 15%;
+  color: $base-navfont-color;
+  margin: 0 0 12px 12px;
+  font-size: 50px;
+  vertical-align: middle;
 }
 
 .dashboard {
