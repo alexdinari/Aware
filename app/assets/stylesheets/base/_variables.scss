@@ -1,18 +1,49 @@
 // Typography
   // New Fonts
-  @font-face {
-        font-family: "Chunkfive";
-        src: url(/assets/fonts/Chunkfive.otf) format("opentype");
-    }
-  @font-face {
-        font-family: "Geoma Thin";
-        src: url(/assets/fonts/Geoma-Thin-Demo.otf) format("opentype");
-    }
-  @font-face {
-        font-family: "Los Angeleno Sans";
-        src: url(/assets/fonts/Los-Angeleno-Sans.ttf) format("truetype");
-    }
+@font-face {
+  font-family: "Chunkfive";
+  src: url(/assets/Chunkfive.otf) format("opentype");
+}
 
+@font-face {
+  font-family: "Geoma Thin";
+  src: url(/assets/Geoma-Thin-Demo.otf) format("opentype");
+}
+
+@font-face {
+  font-family: "Los Angeleno Sans";
+  src: url(/assets/Los-Angeleno-Sans.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Chunkfive";
+  src: url(/public/Chunkfive.otf) format("opentype");
+}
+
+@font-face {
+  font-family: "Geoma Thin";
+  src: url(/public/Geoma-Thin-Demo.otf) format("opentype");
+}
+
+@font-face {
+  font-family: "Los Angeleno Sans";
+  src: url(/public/Los-Angeleno-Sans.ttf) format("truetype");
+}
+
+// @include font-face("Chunkfive",
+//                   "fonts/Chunkfive",
+//                   $asset-pipeline: true,
+//                   $file-formats: otf);
+
+// @include font-face("Geoma Thin",
+//                 "fonts/Geoma-Thin-Demo",
+//                 $asset-pipeline: true,
+//                 $file-formats: otf);
+
+// @include font-face("Los Angeleno Sans",
+//                 "fonts/Los-Angeleno-Sans",
+//                 $asset-pipeline: true,
+//                 $file-formats: ttf);
 
 $base-font-family: "Chunkfive";
 $heading-font-family: $base-font-family;
