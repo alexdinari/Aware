@@ -827,7 +827,8 @@
 		            var delta = 0;
 
 		            if (data[i].year == value) {
-		              d3.select('#slider4text').text('Year: ' + value + ', temp: ' + data[i].temp + ' degrees Celcius');
+		              d3.select('#slider4text').text('Year: ' + value);
+		              d3.select('#slider4text2').text('Temp: ' + data[i].temp + ' degrees Celcius');
 
 		              if (value > lastYear) {
 		                delta = data[i].temp - lastTemp;

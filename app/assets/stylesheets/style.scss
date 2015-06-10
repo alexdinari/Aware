@@ -13,6 +13,12 @@ html {
 body {
   height: 100&;
 }
+
+#pod-headers {
+  font-family: $heading-font-family;
+  text-align: center;
+}
+
 .navbar {
   @include outer-container;
   background-color: $base-navbar;
