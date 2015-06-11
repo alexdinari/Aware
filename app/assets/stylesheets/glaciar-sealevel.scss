@@ -16,7 +16,9 @@
 }
 
 .glacier-svg {
-  margin-top: 30px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-10%);
 }
 
 path { 
@@ -56,4 +58,8 @@ path {
 
 .bar2 {
   fill: orange;
+}
+
+.headerbox1 {
+
 }

@@ -21,7 +21,6 @@
 
 #yeartempbox {
   @include span-columns(5);
-  border: $base-border;
   position: relative;
   top: 50%;
   transform: translateY(-50%);
@@ -34,7 +33,6 @@
 
 #mapbox {
   @include span-columns(7);
-  border: $base-border;
   position: relative;
   top: 50%;
   transform: translateY(-42%);
