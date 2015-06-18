@@ -25,6 +25,7 @@ body {
   @include outer-container;
   background-color: $base-navbar;
   height: em(60);
+  margin-bottom: em(8);
 }
 
 .apptitle {
@@ -34,20 +35,6 @@ body {
   margin: 0 0 0 12px;
   font-size: 50px;
   vertical-align: middle;
-}
-
-.dashboard {
-  @include outer-container;
-}
-
-.pod {
-  background-color: white;
-}
-
-.bottomcontainer {
-  @include span-columns(5);
-  height: em(500);
-  @include outer-container;
 }
 
 .pod-tooltip-item {  

@@ -5,21 +5,21 @@
   height: em(250);
 }
 
-#glaciar-sealevel {
-  border-radius: $base-border-radius;
-  font-family: $sans-serif;
-  height: em(240);
-  width: em(705);
-  border: $base-border;
-  margin: 5px 5px 5px 10px;
-  box-shadow: 0 2px 4px darken($base-background-color, 10%)
-}
+// #glaciar-sealevel {
+//   border-radius: $base-border-radius;
+//   font-family: $sans-serif;
+//   height: em(240);
+//   width: em(705);
+//   border: $base-border;
+//   margin: 5px 5px 5px 10px;
+//   box-shadow: 0 2px 4px darken($base-background-color, 10%)
+// }
 
-.glacier-svg {
-  position: relative;
-  top: 50%;
-  transform: translateY(-10%);
-}
+// .glacier-svg {
+//   position: relative;
+//   top: 50%;
+//   transform: translateY(-10%);
+// }
 
 path { 
   stroke: steelblue;
