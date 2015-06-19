@@ -2,6 +2,7 @@
 
 .air-temp-container {
   @include span-columns(6);
+  @include outer-container;
   @include omega();
   height: em(250);
 }
@@ -9,20 +10,43 @@
 #air-temp {
   border-radius: $base-border-radius;
   @include fill-parent;
+  @include outer-container;
   height: em(240);
   width: em(705);
   border: $base-border;
   margin: 5px 10px 5px 5px;
-  box-shadow: 0 2px 4px darken($base-background-color, 10%)
+  box-shadow: 0 2px 4px darken($base-background-color, 10%);
+  vertical-align: middle;
+}
+
+#yeartempbox {
+  @include span-columns(5);
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+
+}
+
+#slider4text, #slider4text2 {
+  text-align: center;
+}
+
+#mapbox {
+  @include span-columns(7);
+  position: relative;
+  top: 50%;
+  transform: translateY(-42%);
 }
 
 #slider4 {
- width: 300px;
- top: 75px;
- right: 70px;
- position: absolute;
+width: 300px;
+top: 75px;
+right: 70px;
+position: absolute;
 }
 
+
+
 #vmap {
-  float: right;
+position: absolute;
 }
