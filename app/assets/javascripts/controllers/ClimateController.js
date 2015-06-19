@@ -15,8 +15,8 @@
 
 			    // Set the dimensions of the canvas / graph
 			    var margin = {top: 20, right: 20, bottom: 20, left: 50},
-			        width = 690,
-			        height = 190;  
+			        width = '100%',
+			        height = '100%';  
 
 			    // Parse the date / time
 			    var parseDate = d3.time.format("%d-%b-%y").parse,
@@ -713,15 +713,15 @@
 					  // SETS UP THE LAYOUT STRUCTURE FOR THE BUBBLES
 					  var bubble = d3.layout.pack()
 					    .sort(null)
-					    .size([500,490])
+					    .size([400,200])
 					    .padding(1.5);
 					  bubble.nodes(root);
 
 					  // ASSIGNS THE VARIABLE SVG TO THE D3 #ANIMAL-TRACKER SELECTOR
 					  var svg = d3.select("#animal-tracker")
 					    .append("svg")
-					    .attr("width",700)
-					    .attr("height", 490)
+					    .attr("width",'100%')
+					    .attr("height", '100%')
 					    .attr("class","bubble");
 
 					  // CREATING EACH NODE FROM THE DATA
