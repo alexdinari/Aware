@@ -579,6 +579,8 @@
 				var yAxisRight = d3.svg.axis().scale(y1).ticks(6).orient("right");
 
 				var svg = d3.select("#air-quality").append("svg")
+				    // .attr("width", width + margin.left + margin.right)
+				    // .attr("height", height + margin.top + margin.bottom)
 				    .attr("width", width + margin.left + margin.right)
 				    .attr("height", height + margin.top + margin.bottom)
 				    .append("g")
