@@ -1100,8 +1100,8 @@
          {count: 10 },
        	];
 
-	       var width = 100;
-	       var height = 100;
+	       var width = 300;
+	       var height = 300;
 	       var radius = Math.min(width, height) / 2;
 
 	       var color = d3.scale.category20b();
