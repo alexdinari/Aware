@@ -1,22 +1,8 @@
 /*SEA TEMP TRACKER*/
 
-.sea-temp-container {
-  @include span-columns(3);
-  height: em(500);
-  float: right;
-}
-
-#sea-temp {
-  border-radius: $base-border-radius;
-  height: em(490);
-  width: em(290);
-  border: $base-border;
-  margin: 5px 0px 5px 60px;
-  box-shadow: 0 2px 4px darken($base-background-color, 10%)
-}
-
 #axis {
-  margin-left: -20px
+  position: absolute;
+  margin-left: 300px;
 }
 
 .tooltipsea { 
@@ -31,13 +17,6 @@
   border: 1px solid #000000;    
   border-radius: 8px;     
   pointer-events: none;     
-}
-
-.seatemp {
-  display: inline-block;
-  float: right;
-  margin-left: -15px;
-  margin-top: 15px;
 }
 
 .axis text {

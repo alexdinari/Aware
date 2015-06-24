@@ -15,8 +15,8 @@
 
 			    // Set the dimensions of the canvas / graph
 			    var margin = {top: 20, right: 20, bottom: 20, left: 50},
-			        width = '100%',
-			        height = '100%';  
+			        width = 850,
+			        height = 400;  
 
 			    // Parse the date / time
 			    var parseDate = d3.time.format("%d-%b-%y").parse,
@@ -348,8 +348,8 @@
 
 			    // Set the dimensions of the canvas / graph
 			    var margin = {top: 20, right: 20, bottom: 20, left: 50},
-			        width = 600,
-			        height = 190;  
+			        width = 440,
+			        height = 370;  
 
 			    // Parse the date / time
 			    var parseDate = d3.time.format("%d-%b-%y").parse,
@@ -560,8 +560,8 @@
 
 			function airquality(){
 				var margin = {top: 80, right: 80, bottom: 80, left: 40},
-    		width = 360 - margin.left - margin.right,
-    		height = 250 - margin.top - margin.bottom;
+    		width = 480 - margin.left - margin.right,
+    		height = 450 - margin.top - margin.bottom;
 
 				var x = d3.scale.ordinal()
 				    .rangeRoundBands([0, width], .1);
@@ -877,7 +877,7 @@
 
 				var width = 2700;
 				var width2 = 0;
-				var height = 430;
+				var height = 370;
 
 				//The number of columns and rows of the heatmap
 				var MapColumns = 10,
