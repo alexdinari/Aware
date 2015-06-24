@@ -713,7 +713,7 @@
 					  // SETS UP THE LAYOUT STRUCTURE FOR THE BUBBLES
 					  var bubble = d3.layout.pack()
 					    .sort(null)
-					    .size([400,200])
+					    .size([400,400])
 					    .padding(1.5);
 					  bubble.nodes(root);
 
