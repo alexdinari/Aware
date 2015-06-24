@@ -348,8 +348,8 @@
 
 			    // Set the dimensions of the canvas / graph
 			    var margin = {top: 20, right: 20, bottom: 20, left: 50},
-			        width = 600,
-			        height = 190;  
+			        width = 440,
+			        height = 370;  
 
 			    // Parse the date / time
 			    var parseDate = d3.time.format("%d-%b-%y").parse,
@@ -877,7 +877,7 @@
 
 				var width = 2700;
 				var width2 = 0;
-				var height = 430;
+				var height = 370;
 
 				//The number of columns and rows of the heatmap
 				var MapColumns = 10,
