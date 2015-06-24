@@ -802,12 +802,12 @@
 			function airtemp(){
 
 				var red = 75;
-		    var lastYear = 1961;
-		    var lastTemp = 6;
+		    	var lastYear = 1961;
+		    	var lastTemp = 6;
 
 		      jQuery('#vmap').vectorMap({ 
 		          map: 'world_en',
-		          backgroundColor: 'white',
+		          backgroundColor: null,
 		          color: '#ffffff',
 		          hoverOpacity: 0.7,
 		          selectedColor: '#666666',
