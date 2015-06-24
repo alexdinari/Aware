@@ -1,17 +1,8 @@
 /*ANIMAL TRACKER*/
 
-.animal-tracker-container {
-  @include span-columns(4);
-  height: em(500);
-}
-
-// #animal-tracker {
-//   border-radius: $base-border-radius;
-//   height: em(490);
-//   width: 100%;
-//   border: $base-border;
-//   margin: 5px 10px 5px 10px;
-//   box-shadow: 0 2px 4px darken($base-background-color, 10%)
+// .animal-tracker-container {
+//   @include span-columns(4);
+//   height: em(500);
 // }
 
 .maincirc:hover {
