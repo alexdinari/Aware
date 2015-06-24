@@ -15,8 +15,8 @@
 
 			    // Set the dimensions of the canvas / graph
 			    var margin = {top: 20, right: 20, bottom: 20, left: 50},
-			        width = '100%',
-			        height = '100%';  
+			        width = 850,
+			        height = 400;  
 
 			    // Parse the date / time
 			    var parseDate = d3.time.format("%d-%b-%y").parse,
@@ -560,8 +560,8 @@
 
 			function airquality(){
 				var margin = {top: 80, right: 80, bottom: 80, left: 40},
-    		width = 360 - margin.left - margin.right,
-    		height = 250 - margin.top - margin.bottom;
+    		width = 480 - margin.left - margin.right,
+    		height = 450 - margin.top - margin.bottom;
 
 				var x = d3.scale.ordinal()
 				    .rangeRoundBands([0, width], .1);
