@@ -1,5 +1,9 @@
 /*GLACIER MELTING + SEA LEVEL RISE*/
 
+#glaciar-sealevel {
+  position: relative;
+}
+
 .glaciar-sealevel-container {
   @include span-columns(6);
   height: em(250);
