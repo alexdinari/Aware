@@ -4,10 +4,18 @@
   width: 50%;
   height: 100%;
   float: left;
+  text-align: center;
+  position: relative;
 }
 
-#slider4text, #slider4text2 {
-  text-align: center;
+#slider4text {
+  top: 40%;
+  position: absolute;
+}
+
+#slider4text2 {
+  top: 50%;
+  position: absolute;
 }
 
 #mapbox {
