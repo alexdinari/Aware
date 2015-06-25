@@ -109,7 +109,9 @@
     }
 
     h1 {
-      color: $base-font-color;
+      color: $blue;
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 700;
       margin-bottom: 0 0 0.6em 0;
       text-align: left;
       text-transform: capitalize;
@@ -121,11 +123,14 @@
     }
 
     .modal-intro {
-      font-weight: 800;
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 400;
     }
 
     .modal-content {
       color: $base-font-color;
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 300;
 
       @include media($medium-screen) {
         @include columns(2 8em);
