@@ -617,7 +617,7 @@
 				    .attr("text-anchor", "middle")  
 				    .style("font-size", "16px") 
 				    .style("text-decoration", "underline")  
-				    .text("Air Quality 2000 vs 2015");
+				    // .text("Air Quality 2000 vs 2015");
 				 
 
 				  // Create Bars 
@@ -748,7 +748,7 @@
 					      .text("tooltipAni");
 
 					  // CREATING EACH CIRCLE FROM THE NODES
-					  var colour = d3.scale.category10();
+					  var colour = d3.scale.category20b();
 
 					  node.append("circle")
 					    .attr("class", "maincirc")
