@@ -29,7 +29,8 @@ body {
 }
 
 .apptitle {
-  font-family: $base-font-family;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 400;
   width: 15%;
   color: $base-navfont-color;
   margin: 0 0 0 12px;
@@ -109,10 +110,14 @@ body {
   background-size: cover;  
 }
 
+.bar1 {
+  fill: red;
+}
+
 .label {
   display: inline-block;
-  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !important;
-  font-weight: normal;
+  font-family: 'Quicksand', sans-serif !important;
+  font-weight: 400;
   line-height: 1;
   margin-bottom: auto;
   text-align: center;
