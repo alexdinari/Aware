@@ -1,6 +1,8 @@
 /*DEFORESTATION TRACKER*/
 #deforestation{
   position: relative;
+  background-image: url("forest.jpg");
+  background-size: cover;  
 }
 
 #piebox {
@@ -10,8 +12,8 @@
 }
 
 #piechart {
-  top: 25%;
-  left: 25%;
+  top: 15%;
+  left: 15%;
   position: absolute;
 }
 
